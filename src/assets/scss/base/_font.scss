@@ -52,6 +52,105 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Courier Prime';
+  src:
+    local('Courier Prime Regular'),
+    url('/fonts/CourierPrime-Regular.woff2') format('woff2'),
+    url('/fonts/CourierPrime-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src:
+    local('Courier Prime Bold'),
+    url('/fonts/CourierPrime-Bold.woff2') format('woff2'),
+    url('/fonts/CourierPrime-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src:
+    local('Courier Prime Italic'),
+    url('/fonts/CourierPrime-Italic.woff2') format('woff2'),
+    url('/fonts/CourierPrime-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src:
+    local('Courier Prime Bold Italic'),
+    url('/fonts/CourierPrime-BoldItalic.woff2') format('woff2'),
+    url('/fonts/CourierPrime-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Doto';
+  src:
+    local('Doto'),
+    url('/fonts/Doto-VariableFont_ROND,wght.woff2') format('woff2'),
+    url('/fonts/Doto-VariableFont_ROND,wght.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Play';
+  src:
+    local('Play Regular'),
+    url('/fonts/Play-Regular.woff2') format('woff2'),
+    url('/fonts/Play-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Play';
+  src:
+    local('Play Bold'),
+    url('/fonts/Play-Bold.woff2') format('woff2'),
+    url('/fonts/Play-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src:
+    local('Rubik'),
+    url('/fonts/Rubik-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Rubik-VariableFont_wght.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src:
+    local('Rubik Italic'),
+    url('/fonts/Rubik-Italic-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Rubik-Italic-VariableFont_wght.woff') format('woff');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 body {
   font-family: var(--font-family-default);
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
