@@ -56,6 +56,7 @@
   font-family: 'Courier Prime';
   src:
     local('Courier Prime Regular'),
+    url('/fonts/CourierPrime-Regular.ttf') format('truetype'),
     url('/fonts/CourierPrime-Regular.woff2') format('woff2'),
     url('/fonts/CourierPrime-Regular.woff') format('woff');
   font-weight: normal;
@@ -67,6 +68,7 @@
   font-family: 'Courier Prime';
   src:
     local('Courier Prime Bold'),
+    url('/fonts/CourierPrime-Bold.ttf') format('truetype'),
     url('/fonts/CourierPrime-Bold.woff2') format('woff2'),
     url('/fonts/CourierPrime-Bold.woff') format('woff');
   font-weight: bold;
@@ -78,6 +80,7 @@
   font-family: 'Courier Prime';
   src:
     local('Courier Prime Italic'),
+    url('/fonts/CourierPrime-Italic.ttf') format('truetype'),
     url('/fonts/CourierPrime-Italic.woff2') format('woff2'),
     url('/fonts/CourierPrime-Italic.woff') format('woff');
   font-weight: normal;
@@ -89,6 +92,7 @@
   font-family: 'Courier Prime';
   src:
     local('Courier Prime Bold Italic'),
+    url('/fonts/CourierPrime-BoldItalic.ttf') format('truetype'),
     url('/fonts/CourierPrime-BoldItalic.woff2') format('woff2'),
     url('/fonts/CourierPrime-BoldItalic.woff') format('woff');
   font-weight: bold;
@@ -100,6 +104,7 @@
   font-family: 'Doto';
   src:
     local('Doto'),
+    url('/fonts/Doto-VariableFont_ROND,wght.ttf') format('truetype'),
     url('/fonts/Doto-VariableFont_ROND,wght.woff2') format('woff2'),
     url('/fonts/Doto-VariableFont_ROND,wght.woff') format('woff');
   font-weight: 100 900;
@@ -110,7 +115,7 @@
 @font-face {
   font-family: 'Play';
   src:
-    local('Play Regular'),
+    url('/fonts/Play-Regular.ttf') format('truetype'),
     url('/fonts/Play-Regular.woff2') format('woff2'),
     url('/fonts/Play-Regular.woff') format('woff');
   font-weight: normal;
@@ -121,7 +126,7 @@
 @font-face {
   font-family: 'Play';
   src:
-    local('Play Bold'),
+    url('/fonts/Play-Bold.ttf') format('truetype'),
     url('/fonts/Play-Bold.woff2') format('woff2'),
     url('/fonts/Play-Bold.woff') format('woff');
   font-weight: bold;
@@ -132,30 +137,27 @@
 @font-face {
   font-family: 'Rubik';
   src:
-    local('Rubik'),
+    url('/fonts/Rubik-VariableFont_wght.ttf') format('truetype'),
     url('/fonts/Rubik-VariableFont_wght.woff2') format('woff2'),
     url('/fonts/Rubik-VariableFont_wght.woff') format('woff');
   font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Rubik';
   src:
-    local('Rubik Italic'),
+    url('/fonts/Rubik-Italic-VariableFont_wght.ttf') format('truetype'),
     url('/fonts/Rubik-Italic-VariableFont_wght.woff2') format('woff2'),
     url('/fonts/Rubik-Italic-VariableFont_wght.woff') format('woff');
   font-weight: 100 900;
   font-style: italic;
-  font-display: swap;
 }
 
 body {
   font-family: var(--font-family-default);
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   text-rendering: optimizeLegibility;
-  font-synthesis: none;
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-text-size-adjust: 100%;
@@ -164,7 +166,7 @@ body {
 
   a:not(.button) {
     color: var(--action-color);
-    text-decoration: underline;
+    text-decoration: none;
 
     &:visited {
       color: var(--action-color);
@@ -173,7 +175,7 @@ body {
     &:hover,
     &:focus {
       color: var(--action-color-state);
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 

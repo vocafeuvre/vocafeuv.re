@@ -5,18 +5,6 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#d9fffb',
-          100: '#ccfffa',
-          200: '#bffff8',
-          300: '#99fff4',
-          400: '#4dffec',
-          500: '#00FFE4',
-          600: '#00e6cd',
-          700: '#00bfab',
-          800: '#009989',
-          900: '#007d70',
-        },
-        secondary: {
           50: '#ffd9fa',
           100: '#ffccf9',
           200: '#ffbff7',
@@ -27,6 +15,18 @@ module.exports = {
           700: '#bf00a8',
           800: '#990086',
           900: '#7d006e',
+        },
+        secondary: {
+          50: '#d9fffb',
+          100: '#ccfffa',
+          200: '#bffff8',
+          300: '#99fff4',
+          400: '#4dffec',
+          500: '#00FFE4',
+          600: '#00e6cd',
+          700: '#00bfab',
+          800: '#009989',
+          900: '#007d70',
         },
         tertiary: {
           50: '#ffe9d9',
@@ -88,7 +88,24 @@ module.exports = {
           800: '#2c3656',
           900: '#242c46',
         },
-      }
+      },
+      fontFamily: {
+        'sans': ['Open Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        'courier': ['Courier Prime', 'ui-monospace', 'monospace'],
+        'doto': ['Doto', 'sans-serif'],
+        'play': ['Play', 'sans-serif'],
+        'rubik': ['Rubik', 'sans-serif'],
+      },
+      height: {
+        '25': '6.25rem',
+        '26': '6.5rem',
+        '27': '6.75rem',
+      },
+      minHeight: {
+        '25': '6.25rem',
+        '26': '6.5rem',
+        '27': '6.75rem',
+      },
     },
   },
   plugins: [],

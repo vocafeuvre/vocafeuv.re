@@ -1,0 +1,70 @@
+---
+import ResponsiveToggle from './ResponsiveToggle.astro'
+import { DarkMode } from 'accessible-astro-components'
+---
+
+<div id="main-navigation" class="py-6">
+  <div class="container">
+    <div class="wrapper">
+      <div class="ml-auto">
+        <DarkMode />
+      </div>
+      <ResponsiveToggle />
+    </div>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  @use '../assets/scss/base/breakpoint' as *;
+  @use '../assets/scss/base/outline' as *;
+
+  #main-navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    > .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+  }
+
+  .darkmode-toggle {
+    padding: 0;
+    border: none;
+
+    svg {
+      width: 30px;
+      margin-top: 4px;
+    }
+
+    svg path {
+      fill: var(--action-color);
+    }
+
+    &:hover {
+      svg path {
+        fill: var(--action-color-state);
+      }
+    }
+
+    &:focus {
+      @include outline;
+
+      &:not(:focus-visible) {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+</style>

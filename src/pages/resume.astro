@@ -1,0 +1,697 @@
+---
+import MinimalLayout from '../layouts/MinimalLayout.astro'
+import { library, icon } from '@fortawesome/fontawesome-svg-core'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+
+// Add icons to library
+library.add(faGithub, faLinkedin, faGlobe)
+
+// Create the icon HTML elements
+const githubIcon = icon(faGithub).html
+const linkedinIcon = icon(faLinkedin).html
+const globeIcon = icon(faGlobe).html
+---
+
+<MinimalLayout title="Resume">
+  <section class="relative flex min-h-[480px] flex-col items-center sm:min-h-[420px] md:min-h-[360px]">
+    <div class="resume-hero-gradient absolute left-0 top-0 -z-50 h-full w-full"></div>
+    <div class="flex w-full flex-1 flex-col items-center justify-center">
+      <div class="h-32 w-full"></div>
+      <h1 class="text-shadow px-8 text-center text-6xl text-white">vocafeuvre</h1>
+      <h2 class="font-doto text-shadow mt-3 px-6 text-center text-3xl !font-semibold text-white">
+        Full Stack Developer
+      </h2>
+      <div class="mt-5 flex w-full items-center justify-center gap-6">
+        <a
+          href="https://github.com/vocafeuvre"
+          target="_blank"
+          class="!text-primary-700 hover:!text-primary-500 dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium no-underline"
+        >
+          <span class="h-4 w-4" set:html={githubIcon} />
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ralph-villanueva-44ba80185/"
+          target="_blank"
+          class="!text-primary-700 hover:!text-primary-500 dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium no-underline"
+        >
+          <span class="h-4 w-4" set:html={linkedinIcon} />
+          <span>LinkedIn</span>
+        </a>
+        <a
+          href="https://vocafeuv.re"
+          target="_blank"
+          class="!text-primary-700 hover:!text-primary-500 dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium no-underline"
+        >
+          <span class="h-4 w-4" set:html={globeIcon} />
+          <span>Website</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <style lang="scss">
+    .text-shadow {
+      text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .resume-hero-gradient {
+      background: rgb(22, 3, 22);
+      background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1 0%, #00ffe5 15%, #ff00e1 33%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000 30%, #ffffff00 90%, #ffffff00 100%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000 30%, #ffffff00 90%, #ffffff00 100%);
+      animation: pulse-gradient 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-gradient {
+      0%,
+      100% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1ff 0%, #00ffe5ff 15%, #ff00e1ff 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      2.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1fc 0%, #00ffe5fc 15%, #ff00e1fc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f9 0%, #00ffe5f9 15%, #ff00e1f9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      7.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f7 0%, #00ffe5f7 15%, #ff00e1f7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      10% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f5 0%, #00ffe5f5 15%, #ff00e1f5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      12.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f2 0%, #00ffe5f2 15%, #ff00e1f2 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      15% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f0 0%, #00ffe5f0 15%, #ff00e1f0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      17.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1ed 0%, #00ffe5ed 15%, #ff00e1ed 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      20% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1eb 0%, #00ffe5eb 15%, #ff00e1eb 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      22.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e9 0%, #00ffe5e9 15%, #ff00e1e9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      25% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e7 0%, #00ffe5e7 15%, #ff00e1e7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      27.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e5 0%, #00ffe5e5 15%, #ff00e1e5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      30% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e3 0%, #00ffe5e3 15%, #ff00e1e3 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      32.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e1 0%, #00ffe5e1 15%, #ff00e1e1 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      35% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e0 0%, #00ffe5e0 15%, #ff00e1e0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      37.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1de 0%, #00ffe5de 15%, #ff00e1de 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      40% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dd 0%, #00ffe5dd 15%, #ff00e1dd 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      42.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dc 0%, #00ffe5dc 15%, #ff00e1dc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      45% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1da 0%, #00ffe5da 15%, #ff00e1da 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      47.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1d9 0%, #00ffe5d9 15%, #ff00e1d9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      50% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1d8 0%, #00ffe5d8 15%, #ff00e1d8 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      52.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1d9 0%, #00ffe5d9 15%, #ff00e1d9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      55% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1da 0%, #00ffe5da 15%, #ff00e1da 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      57.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dc 0%, #00ffe5dc 15%, #ff00e1dc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      60% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dd 0%, #00ffe5dd 15%, #ff00e1dd 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      62.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1de 0%, #00ffe5de 15%, #ff00e1de 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      65% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e0 0%, #00ffe5e0 15%, #ff00e1e0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      67.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e1 0%, #00ffe5e1 15%, #ff00e1e1 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      70% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e3 0%, #00ffe5e3 15%, #ff00e1e3 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      72.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e5 0%, #00ffe5e5 15%, #ff00e1e5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      75% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e7 0%, #00ffe5e7 15%, #ff00e1e7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      77.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e9 0%, #00ffe5e9 15%, #ff00e1e9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      80% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1eb 0%, #00ffe5eb 15%, #ff00e1eb 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      82.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1ed 0%, #00ffe5ed 15%, #ff00e1ed 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      85% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f0 0%, #00ffe5f0 15%, #ff00e1f0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      87.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f2 0%, #00ffe5f2 15%, #ff00e1f2 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      90% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f5 0%, #00ffe5f5 15%, #ff00e1f5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      92.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f7 0%, #00ffe5f7 15%, #ff00e1f7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      95% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f9 0%, #00ffe5f9 15%, #ff00e1f9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      97.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1fc 0%, #00ffe5fc 15%, #ff00e1fc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+    }
+
+    body.darkmode {
+      .text-shadow {
+        text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .resume-hero-gradient {
+        background: var(--background);
+        background-image: repeating-conic-gradient(
+            from 7.5deg at 50% 70%,
+            #ff00e1 0%,
+            #7788e220 7.5%,
+            #00ffe5 15%,
+            #7788e220 22.5%,
+            #ff00e1 34%
+          ),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000 30%, #00000000 90%);
+        mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000d0 30%, #00000000 90%);
+        animation: pulse-gradient-dark 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-gradient-dark {
+        0%,
+        100% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1ff 0%,
+              #7788e220 7.5%,
+              #00ffe5ff 15%,
+              #7788e220 22.5%,
+              #ff00e1ff 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        2.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1fc 0%,
+              #7788e220 7.5%,
+              #00ffe5fc 15%,
+              #7788e220 22.5%,
+              #ff00e1fc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f9 0%,
+              #7788e220 7.5%,
+              #00ffe5f9 15%,
+              #7788e220 22.5%,
+              #ff00e1f9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        7.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f7 0%,
+              #7788e220 7.5%,
+              #00ffe5f7 15%,
+              #7788e220 22.5%,
+              #ff00e1f7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        10% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f5 0%,
+              #7788e220 7.5%,
+              #00ffe5f5 15%,
+              #7788e220 22.5%,
+              #ff00e1f5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        12.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f2 0%,
+              #7788e220 7.5%,
+              #00ffe5f2 15%,
+              #7788e220 22.5%,
+              #ff00e1f2 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        15% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f0 0%,
+              #7788e220 7.5%,
+              #00ffe5f0 15%,
+              #7788e220 22.5%,
+              #ff00e1f0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        17.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1ed 0%,
+              #7788e220 7.5%,
+              #00ffe5ed 15%,
+              #7788e220 22.5%,
+              #ff00e1ed 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        20% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1eb 0%,
+              #7788e220 7.5%,
+              #00ffe5eb 15%,
+              #7788e220 22.5%,
+              #ff00e1eb 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        22.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e9 0%,
+              #7788e220 7.5%,
+              #00ffe5e9 15%,
+              #7788e220 22.5%,
+              #ff00e1e9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        25% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e7 0%,
+              #7788e220 7.5%,
+              #00ffe5e7 15%,
+              #7788e220 22.5%,
+              #ff00e1e7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        27.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e5 0%,
+              #7788e220 7.5%,
+              #00ffe5e5 15%,
+              #7788e220 22.5%,
+              #ff00e1e5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        30% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e3 0%,
+              #7788e220 7.5%,
+              #00ffe5e3 15%,
+              #7788e220 22.5%,
+              #ff00e1e3 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        32.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e1 0%,
+              #7788e220 7.5%,
+              #00ffe5e1 15%,
+              #7788e220 22.5%,
+              #ff00e1e1 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        35% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e0 0%,
+              #7788e220 7.5%,
+              #00ffe5e0 15%,
+              #7788e220 22.5%,
+              #ff00e1e0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        37.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1de 0%,
+              #7788e220 7.5%,
+              #00ffe5de 15%,
+              #7788e220 22.5%,
+              #ff00e1de 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        40% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dd 0%,
+              #7788e220 7.5%,
+              #00ffe5dd 15%,
+              #7788e220 22.5%,
+              #ff00e1dd 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        42.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dc 0%,
+              #7788e220 7.5%,
+              #00ffe5dc 15%,
+              #7788e220 22.5%,
+              #ff00e1dc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        45% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1da 0%,
+              #7788e220 7.5%,
+              #00ffe5da 15%,
+              #7788e220 22.5%,
+              #ff00e1da 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        47.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1d9 0%,
+              #7788e220 7.5%,
+              #00ffe5d9 15%,
+              #7788e220 22.5%,
+              #ff00e1d9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        50% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1d8 0%,
+              #7788e220 7.5%,
+              #00ffe5d8 15%,
+              #7788e220 22.5%,
+              #ff00e1d8 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        52.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1d9 0%,
+              #7788e220 7.5%,
+              #00ffe5d9 15%,
+              #7788e220 22.5%,
+              #ff00e1d9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        55% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1da 0%,
+              #7788e220 7.5%,
+              #00ffe5da 15%,
+              #7788e220 22.5%,
+              #ff00e1da 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        57.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dc 0%,
+              #7788e220 7.5%,
+              #00ffe5dc 15%,
+              #7788e220 22.5%,
+              #ff00e1dc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        60% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dd 0%,
+              #7788e220 7.5%,
+              #00ffe5dd 15%,
+              #7788e220 22.5%,
+              #ff00e1dd 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        62.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1de 0%,
+              #7788e220 7.5%,
+              #00ffe5de 15%,
+              #7788e220 22.5%,
+              #ff00e1de 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        65% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e0 0%,
+              #7788e220 7.5%,
+              #00ffe5e0 15%,
+              #7788e220 22.5%,
+              #ff00e1e0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        67.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e1 0%,
+              #7788e220 7.5%,
+              #00ffe5e1 15%,
+              #7788e220 22.5%,
+              #ff00e1e1 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        70% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e3 0%,
+              #7788e220 7.5%,
+              #00ffe5e3 15%,
+              #7788e220 22.5%,
+              #ff00e1e3 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        72.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e5 0%,
+              #7788e220 7.5%,
+              #00ffe5e5 15%,
+              #7788e220 22.5%,
+              #ff00e1e5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        75% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e7 0%,
+              #7788e220 7.5%,
+              #00ffe5e7 15%,
+              #7788e220 22.5%,
+              #ff00e1e7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        77.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e9 0%,
+              #7788e220 7.5%,
+              #00ffe5e9 15%,
+              #7788e220 22.5%,
+              #ff00e1e9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        80% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1eb 0%,
+              #7788e220 7.5%,
+              #00ffe5eb 15%,
+              #7788e220 22.5%,
+              #ff00e1eb 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        82.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1ed 0%,
+              #7788e220 7.5%,
+              #00ffe5ed 15%,
+              #7788e220 22.5%,
+              #ff00e1ed 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        85% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f0 0%,
+              #7788e220 7.5%,
+              #00ffe5f0 15%,
+              #7788e220 22.5%,
+              #ff00e1f0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        87.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f2 0%,
+              #7788e220 7.5%,
+              #00ffe5f2 15%,
+              #7788e220 22.5%,
+              #ff00e1f2 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        90% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f5 0%,
+              #7788e220 7.5%,
+              #00ffe5f5 15%,
+              #7788e220 22.5%,
+              #ff00e1f5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        92.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f7 0%,
+              #7788e220 7.5%,
+              #00ffe5f7 15%,
+              #7788e220 22.5%,
+              #ff00e1f7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        95% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f9 0%,
+              #7788e220 7.5%,
+              #00ffe5f9 15%,
+              #7788e220 22.5%,
+              #ff00e1f9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        97.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1fc 0%,
+              #7788e220 7.5%,
+              #00ffe5fc 15%,
+              #7788e220 22.5%,
+              #ff00e1fc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+      }
+    }
+  </style>
+</MinimalLayout>
