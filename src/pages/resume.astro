@@ -18,15 +18,15 @@ const globeIcon = icon(faGlobe).html
     <div class="resume-hero-gradient absolute left-0 top-0 -z-50 h-full w-full"></div>
     <div class="flex w-full flex-1 flex-col items-center justify-center">
       <div class="h-32 w-full"></div>
-      <h1 class="text-shadow px-8 text-center text-6xl text-white">vocafeuvre</h1>
-      <h2 class="font-doto text-shadow mt-3 px-6 text-center text-3xl !font-semibold text-white">
+      <h1 class="text-shadow px-8 text-center text-6xl text-neutral-900 dark:text-white">vocafeuvre</h1>
+      <h2 class="font-doto text-shadow mt-3 px-6 text-center text-3xl !font-semibold text-neutral-900 dark:text-white">
         Full Stack Developer
       </h2>
-      <div class="mt-5 flex w-full items-center justify-center gap-6">
+      <div class="mt-8 flex w-full items-center justify-center gap-6">
         <a
           href="https://github.com/vocafeuvre"
           target="_blank"
-          class="!text-primary-700 hover:!text-primary-500 dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium no-underline"
+          class="dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700"
         >
           <span class="h-4 w-4" set:html={githubIcon} />
           <span>GitHub</span>
@@ -34,7 +34,7 @@ const globeIcon = icon(faGlobe).html
         <a
           href="https://www.linkedin.com/in/ralph-villanueva-44ba80185/"
           target="_blank"
-          class="!text-primary-700 hover:!text-primary-500 dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium no-underline"
+          class="dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700"
         >
           <span class="h-4 w-4" set:html={linkedinIcon} />
           <span>LinkedIn</span>
@@ -42,12 +42,17 @@ const globeIcon = icon(faGlobe).html
         <a
           href="https://vocafeuv.re"
           target="_blank"
-          class="!text-primary-700 hover:!text-primary-500 dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium no-underline"
+          class="dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700"
         >
           <span class="h-4 w-4" set:html={globeIcon} />
           <span>Website</span>
         </a>
       </div>
+    </div>
+  </section>
+  <section class="flex h-full w-full flex-1 flex-col">
+    <div class="flex flex-1 flex-col">
+      <h2>Experience</h2>
     </div>
   </section>
   <style lang="scss">
