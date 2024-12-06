@@ -108,6 +108,25 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.fire-gradient-text': {
+          'box-decoration-clone': 'clone',
+          'background-clip': 'text',
+          '-webkit-background-clip': 'text',
+          'color': 'transparent',
+          'background-image': 'linear-gradient(to right, #ff00e0, #FF6C00)',
+        },
+        '.ocean-gradient-text': {
+          'box-decoration-clone': 'clone',
+          'background-clip': 'text',
+          '-webkit-background-clip': 'text',
+          'color': 'transparent',
+          'background-image': 'linear-gradient(to right, #ff00e0, #00ffe4)',
+        },
+      })
+    },
+  ],
   darkMode: ['class', '.darkmode'],
 }

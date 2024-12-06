@@ -1,60 +1,417 @@
 ---
 import MinimalLayout from '../layouts/MinimalLayout.astro'
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import {
+  faGithub,
+  faNodeJs,
+  faHtml5,
+  faCss,
+  faJs,
+  faGitAlt,
+  faLinkedin,
+  faPhp,
+  faRust,
+  faSass,
+  faLaravel,
+  faReact,
+} from '@fortawesome/free-brands-svg-icons'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+import ResponsiveToggle from '../components/ResponsiveToggle.astro'
+import { DarkMode } from 'accessible-astro-components'
+import {
+  faCode,
+  faProjectDiagram,
+  faPeopleGroup,
+  faMobile,
+  faRobot,
+  faWindowMaximize,
+  faDatabase,
+  faGears,
+  faBuildingColumns,
+  faServer,
+  faDesktop,
+} from '@fortawesome/free-solid-svg-icons'
 
 // Add icons to library
-library.add(faGithub, faLinkedin, faGlobe)
+library.add(
+  faGithub,
+  faLinkedin,
+  faGlobe,
+  faCode,
+  faProjectDiagram,
+  faPeopleGroup,
+  faMobile,
+  faJs,
+  faNodeJs,
+  faHtml5,
+  faGitAlt,
+  faCss,
+  faRobot,
+  faWindowMaximize,
+  faPhp,
+  faRust,
+  faDatabase,
+  faSass,
+  faLaravel,
+  faReact,
+  faGears,
+  faBuildingColumns,
+  faServer,
+  faDesktop
+)
 
 // Create the icon HTML elements
 const githubIcon = icon(faGithub).html
 const linkedinIcon = icon(faLinkedin).html
 const globeIcon = icon(faGlobe).html
+const codeIcon = icon(faCode).html
+const projectIcon = icon(faProjectDiagram).html
+const teamIcon = icon(faPeopleGroup).html
+const mobileIcon = icon(faMobile).html
+const jsIcon = icon(faJs).html
+const nodeIcon = icon(faNodeJs).html
+const htmlIcon = icon(faHtml5).html
+const gitIcon = icon(faGitAlt).html
+const cssIcon = icon(faCss).html
+const robotIcon = icon(faRobot).html
+const windowIcon = icon(faWindowMaximize).html
+const dbIcon = icon(faDatabase).html
+const reactIcon = icon(faReact).html
+const gearsIcon = icon(faGears).html
+const serverIcon = icon(faServer).html
+const desktopIcon = icon(faDesktop).html
 ---
 
 <MinimalLayout title="Resume">
-  <section class="relative flex min-h-[480px] flex-col items-center sm:min-h-[420px] md:min-h-[360px]">
-    <div class="resume-hero-gradient absolute left-0 top-0 -z-50 h-full w-full"></div>
-    <div class="flex w-full flex-1 flex-col items-center justify-center">
-      <div class="h-32 w-full"></div>
-      <h1 class="text-shadow px-8 text-center text-6xl text-neutral-900 dark:text-white">vocafeuvre</h1>
-      <h2 class="font-doto text-shadow mt-3 px-6 text-center text-3xl !font-semibold text-neutral-900 dark:text-white">
-        Full Stack Developer
-      </h2>
-      <div class="mt-8 flex w-full items-center justify-center gap-6">
-        <a
-          href="https://github.com/vocafeuvre"
-          target="_blank"
-          class="dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700"
-        >
-          <span class="h-4 w-4" set:html={githubIcon} />
-          <span>GitHub</span>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/ralph-villanueva-44ba80185/"
-          target="_blank"
-          class="dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700"
-        >
-          <span class="h-4 w-4" set:html={linkedinIcon} />
-          <span>LinkedIn</span>
-        </a>
-        <a
-          href="https://vocafeuv.re"
-          target="_blank"
-          class="dark:!text-primary-400 dark:hover:!text-primary-100 text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700"
-        >
-          <span class="h-4 w-4" set:html={globeIcon} />
-          <span>Website</span>
-        </a>
+  <div id="main-navigation" class="py-6 print:hidden">
+    <div class="container">
+      <div class="wrapper">
+        <div class="ml-auto">
+          <DarkMode />
+        </div>
+        <ResponsiveToggle />
       </div>
     </div>
-  </section>
-  <section class="flex h-full w-full flex-1 flex-col">
-    <div class="flex flex-1 flex-col">
-      <h2>Experience</h2>
-    </div>
-  </section>
+  </div>
+  <main id="main-content" class="mb-12" transition:animate="fade">
+    <section
+      class="relative flex min-h-[480px] flex-col items-center sm:min-h-[420px] md:min-h-[360px] print:min-h-[240px]"
+    >
+      <div class="resume-hero-gradient absolute left-0 top-0 -z-50 h-full w-full"></div>
+      <div class="flex w-full flex-1 flex-col items-center justify-center">
+        <div class="h-32 w-full print:hidden"></div>
+        <h1 class="text-shadow px-8 text-center text-6xl text-neutral-900 dark:text-white">vocafeuvre</h1>
+        <h2
+          class="text-shadow mt-3 px-6 text-center font-doto text-3xl !font-semibold text-neutral-900 dark:text-white print:mt-2"
+        >
+          Full Stack Developer
+        </h2>
+        <div class="mt-8 flex w-full items-center justify-center gap-6 print:mt-4">
+          <a
+            href="https://github.com/vocafeuvre"
+            target="_blank"
+            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100"
+          >
+            <span class="h-4 w-4" set:html={githubIcon} />
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ralph-villanueva-44ba80185/"
+            target="_blank"
+            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100"
+          >
+            <span class="h-4 w-4" set:html={linkedinIcon} />
+            <span>LinkedIn</span>
+          </a>
+          <a
+            href="https://vocafeuv.re"
+            target="_blank"
+            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100"
+          >
+            <span class="h-4 w-4" set:html={globeIcon} />
+            <span>Website</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="mt-8 h-full w-full max-w-[1024px] flex-1 px-20 print:mt-4 print:px-4">
+      <div
+        class="space-between flex h-full w-full flex-1 flex-col justify-center gap-16 lg:flex-row lg:gap-10 print:flex-row print:gap-10"
+      >
+        <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:gap-5">
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">Why hire me</h3>
+            <ul class="!ml-1">
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>7 years of professional dev history</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Has owned projects from spec to deployment</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Has led small and large teams</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Coded apps on desktop, mobile, and web</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Fluent in TypeScript</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Knows Node.js inside and out</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>HTML & CSS are my bread and butter</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Has a can-do attitude</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Has contributed to open source</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Actively looks at the latest browser APIs in MDN</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Am a TailwindCSS convert</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Uses AI for maximum productivity</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="mx-2 h-2 w-2 rounded-full bg-neutral-600 dark:bg-white"></div>
+                <span>Coded my resume (instead of using Google Docs)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">My work history</h3>
+            <ul class="ml-2 flex flex-col print:ml-5">
+              <li class="relative flex items-center pb-4 pl-9 print:pl-0">
+                <span
+                  class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-[#FF6C00] to-[#ff00e0] print:hidden"
+                ></span>
+                <span
+                  class="absolute left-[3px] top-[3px] h-5 w-5 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
+                ></span>
+                <div class="gap flex flex-col">
+                  <span class="whitespace-nowrap text-lg font-semibold">Lead Developer</span>
+                  <span class="flex items-end gap-2"
+                    ><a
+                      href="https://hoody.com"
+                      target="_blank"
+                      class="whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-100"
+                      >Hoody</a
+                    ><span class="whitespace-nowrap font-courier text-sm font-light">a privacy startup</span></span
+                  >
+                  <span class="text-sm text-neutral-500">2021 - Present</span>
+                </div>
+              </li>
+              <li class="relative flex items-center pb-4 pl-9 print:pl-0">
+                <span
+                  class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-[#FF6C00] to-[#ff00e0] print:hidden"
+                ></span>
+                <span
+                  class="absolute left-[5px] top-[5px] h-4 w-4 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
+                ></span>
+                <div class="gap flex flex-col">
+                  <span class="whitespace-nowrap text-lg font-semibold">Full Stack Developer</span>
+                  <span class="flex items-end gap-2"
+                    ><a
+                      href="https://github.com/Panteum"
+                      target="_blank"
+                      class="whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-100"
+                      >Panteum</a
+                    ><span class="whitespace-nowrap font-courier text-sm font-light">a crypto startup</span></span
+                  >
+                  <span class="text-sm text-neutral-500">2019 - 2021</span>
+                </div>
+              </li>
+              <li class="relative flex items-center pb-4 pl-9 print:pl-0">
+                <span
+                  class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-transparent to-[#ff00e0] print:hidden"
+                ></span>
+                <span
+                  class="absolute left-[5px] top-[5px] h-4 w-4 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
+                ></span>
+                <div class="gap flex flex-col">
+                  <span class="whitespace-nowrap text-lg font-semibold">Associate Software Developer</span>
+                  <span class="flex items-end gap-2"
+                    ><a
+                      href="https://alliance.com.ph"
+                      target="_blank"
+                      class="whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-100"
+                      >Alliance Software</a
+                    ><span class="whitespace-nowrap font-courier text-sm font-light">a software consultancy</span></span
+                  >
+                  <span class="text-sm text-neutral-500">2017 - 2019</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:gap-5">
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">Tools I've used</h3>
+            <ul class="flex flex-col gap-2">
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={codeIcon} />
+                <span>TypeScript, PHP, Rust, C#</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={desktopIcon} />
+                <span>Node.js, Apache, Tauri, .NET</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={cssIcon} />
+                <span>CSS, TailwindCSS, Sass</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={htmlIcon} />
+                <span>HTML, Handlebars, Nunjucks</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={dbIcon} />
+                <span>MySQL, SQLite, LevelDB, IndexedDB</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={jsIcon} />
+                <span>Svelte, React, Mithril, JQuery</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={serverIcon} />
+                <span>AdonisJS, Express, Slim, Laravel</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={gearsIcon} />
+                <span>Gulp, Webpack, Vite</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">Stuff I've done</h3>
+            <ul class="ml-2 flex flex-col gap-2">
+              <li class="gap flex flex-col">
+                <a
+                  href="https://hoody.com"
+                  target="_blank"
+                  class="!ocean-gradient-text !text-underline whitespace-nowrap font-medium print:!text-neutral-900 print:dark:!text-neutral-100"
+                  ><span>hoody.com</span></a
+                >
+                <span class="text-sm text-neutral-500"
+                  >Led development on the web app, installer, support system, and analytics. Contributed to the website,
+                  and more</span
+                >
+              </li>
+              <li class="gap flex flex-col">
+                <a
+                  href="https://peakpurity.bg"
+                  target="_blank"
+                  class="!ocean-gradient-text !text-underline whitespace-nowrap font-medium print:!text-neutral-900 print:dark:!text-neutral-100"
+                  ><span>peakpurity.bg</span></a
+                >
+                <span class="text-sm text-neutral-500">Webmaster and co-designer, brand and online shop</span>
+              </li>
+              <li class="gap flex flex-col">
+                <a
+                  href="https://esndp.jfc.com.ph/user"
+                  target="_blank"
+                  class="!ocean-gradient-text !text-underline whitespace-nowrap font-medium print:!text-neutral-900 print:dark:!text-neutral-100"
+                  ><span>esndp.jfc.com.ph</span></a
+                >
+                <span class="text-sm text-neutral-500">Fixed critical bugs and added much-needed features</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">My work references</h3>
+            <ul class="gap ml-2 flex flex-col">
+              <li class="gap flex flex-col">
+                <span
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-100"
+                  >Arnaud</span
+                >
+                <span class="text-sm text-neutral-500">Former Lead Developer @ Hoody</span>
+              </li>
+              <li class="gap flex flex-col">
+                <span
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-100"
+                  >Anthony</span
+                >
+                <span class="text-sm text-neutral-500">Founder @ Hoody</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <style lang="scss" is:global>
+    @use '../assets/scss/base/breakpoint' as *;
+    @use '../assets/scss/base/outline' as *;
+
+    #main-navigation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+
+      > .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+      }
+    }
+
+    .darkmode-toggle {
+      padding: 0;
+      border: none;
+
+      svg {
+        width: 30px;
+        margin-top: 4px;
+      }
+
+      svg path {
+        fill: var(--action-color);
+      }
+
+      &:hover {
+        svg path {
+          fill: var(--action-color-state);
+        }
+      }
+
+      &:focus {
+        @include outline;
+
+        &:not(:focus-visible) {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  </style>
   <style lang="scss">
     .text-shadow {
       text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
@@ -696,6 +1053,13 @@ const globeIcon = icon(faGlobe).html
             ),
             radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
         }
+      }
+    }
+
+    @media print {
+      html,
+      body {
+        font-size: 14px;
       }
     }
   </style>
