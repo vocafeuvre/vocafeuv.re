@@ -113,7 +113,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
           <div class="absolute -right-4 top-1/2 mt-2 -translate-y-1/2 print:hidden">
             <button
               id="_name_visible"
-              class="block !h-6 !w-6 !border-none !p-0 !text-neutral-600 hover:!text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-100"
+              class="block !h-6 !w-6 !border-none !p-0 !text-neutral-500 hover:!text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-100"
               set:html={eyeSlashIcon}
               data-eye={eyeIcon}
               data-eye-slash={eyeSlashIcon}
@@ -166,7 +166,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
         </div>
       </div>
     </section>
-    <section class="mt-8 h-full w-full flex-1 px-20 print:mt-4 print:px-4 flex flex-col items-center">
+    <section class="mt-8 flex h-full w-full flex-1 flex-col items-center px-20 print:mt-4 print:px-4">
       <div
         class="space-between flex h-full w-full max-w-[1024px] flex-1 flex-col justify-center gap-16 lg:flex-row lg:gap-10 print:flex-row print:gap-10"
       >
@@ -1319,11 +1319,23 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
 
       // Toggle button color classes based on visibility state
       if (isVisible) {
-        nameVisibleBtn.classList.remove('!text-neutral-600')
-        nameVisibleBtn.classList.add('!text-neutral-700')
+        nameVisibleBtn.classList.remove('!text-secondary-500')
+        nameVisibleBtn.classList.add('!text-neutral-500')
+        nameVisibleBtn.classList.remove('hover:!text-secondary-700')
+        nameVisibleBtn.classList.add('hover:!text-neutral-700')
+        nameVisibleBtn.classList.remove('dark:!text-secondary-400')
+        nameVisibleBtn.classList.add('dark:!text-neutral-400')
+        nameVisibleBtn.classList.remove('dark:hover:!text-secondary-100')
+        nameVisibleBtn.classList.add('dark:hover:!text-neutral-100')
       } else {
-        nameVisibleBtn.classList.remove('!text-neutral-700')
-        nameVisibleBtn.classList.add('!text-neutral-600')
+        nameVisibleBtn.classList.remove('!text-neutral-500')
+        nameVisibleBtn.classList.add('!text-secondary-500')
+        nameVisibleBtn.classList.remove('hover:!text-neutral-700')
+        nameVisibleBtn.classList.add('hover:!text-secondary-700')
+        nameVisibleBtn.classList.remove('dark:!text-neutral-400')
+        nameVisibleBtn.classList.add('dark:!text-secondary-400')
+        nameVisibleBtn.classList.remove('dark:hover:!text-neutral-100')
+        nameVisibleBtn.classList.add('dark:hover:!text-secondary-100')
       }
     })
   </script>
