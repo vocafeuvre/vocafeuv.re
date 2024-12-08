@@ -457,35 +457,80 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
             <ul class="flex flex-col gap-2">
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={codeIcon} />
-                <span>TypeScript, PHP, Rust, C#</span>
+                <span>
+                  <a href="https://www.typescriptlang.org/" target="_blank" class="hover:underline">TypeScript</a>,
+                  <a href="https://www.php.net/" target="_blank" class="hover:underline">PHP</a>,
+                  <a href="https://www.rust-lang.org/" target="_blank" class="hover:underline">Rust</a>,
+                  <a href="https://dotnet.microsoft.com/languages/csharp" target="_blank" class="hover:underline">C#</a>
+                </span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={desktopIcon} />
-                <span>Node.js, Apache, Tauri, Electron</span>
+                <span>
+                  <a href="https://nodejs.org/" target="_blank" class="hover:underline">Node.js</a>,
+                  <a href="https://httpd.apache.org/" target="_blank" class="hover:underline">Apache</a>,
+                  <a href="https://tauri.app/" target="_blank" class="hover:underline">Tauri</a>,
+                  <a href="https://www.electronjs.org/" target="_blank" class="hover:underline">Electron</a>
+                </span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={cssIcon} />
-                <span>CSS, TailwindCSS, Sass</span>
+                <span>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="hover:underline"
+                    >CSS</a
+                  >,
+                  <a href="https://tailwindcss.com/" target="_blank" class="hover:underline">TailwindCSS</a>,
+                  <a href="https://sass-lang.com/" target="_blank" class="hover:underline">Sass</a>
+                </span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={htmlIcon} />
-                <span>HTML, Handlebars, Nunjucks</span>
+                <span>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="hover:underline"
+                    >HTML</a
+                  >,
+                  <a href="https://handlebarsjs.com/" target="_blank" class="hover:underline">Handlebars</a>,
+                  <a href="https://mozilla.github.io/nunjucks/" target="_blank" class="hover:underline">Nunjucks</a>
+                </span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={dbIcon} />
-                <span>MySQL, SQLite, LevelDB, IndexedDB</span>
+                <span>
+                  <a href="https://www.mysql.com/" target="_blank" class="hover:underline">MySQL</a>,
+                  <a href="https://www.sqlite.org/" target="_blank" class="hover:underline">SQLite</a>,
+                  <a href="https://github.com/google/leveldb" target="_blank" class="hover:underline">LevelDB</a>,
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API"
+                    target="_blank"
+                    class="hover:underline">IndexedDB</a
+                  >
+                </span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={jsIcon} />
-                <span>Svelte, React, Mithril, JQuery</span>
+                <span>
+                  <a href="https://svelte.dev/" target="_blank" class="hover:underline">Svelte</a>,
+                  <a href="https://react.dev/" target="_blank" class="hover:underline">React</a>,
+                  <a href="https://mithril.js.org/" target="_blank" class="hover:underline">Mithril</a>,
+                  <a href="https://jquery.com/" target="_blank" class="hover:underline">jQuery</a>
+                </span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400" set:html={serverIcon} />
-                <span>AdonisJS, Express, Slim, Laravel</span>
+                <span>
+                  <a href="https://adonisjs.com/" target="_blank" class="hover:underline">AdonisJS</a>,
+                  <a href="https://expressjs.com/" target="_blank" class="hover:underline">Express</a>,
+                  <a href="https://www.slimframework.com/" target="_blank" class="hover:underline">Slim</a>,
+                  <a href="https://laravel.com/" target="_blank" class="hover:underline">Laravel</a>
+                </span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400" set:html={gearsIcon} />
-                <span>Gulp, Webpack, Vite</span>
+                <span>
+                  <a href="https://gulpjs.com/" target="_blank" class="hover:underline">Gulp</a>,
+                  <a href="https://webpack.js.org/" target="_blank" class="hover:underline">Webpack</a>,
+                  <a href="https://vitejs.dev/" target="_blank" class="hover:underline">Vite</a>
+                </span>
               </li>
             </ul>
           </div>
@@ -602,6 +647,14 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
     }
   </style>
   <style lang="scss">
+    a:not(.button) {
+      color: var(--font-color);
+
+      &:visited {
+        color: var(--action-color-state);
+      }
+    }
+
     .text-shadow {
       text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
     }
