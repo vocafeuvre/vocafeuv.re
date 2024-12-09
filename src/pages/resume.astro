@@ -33,6 +33,7 @@ import {
   faEye,
   faEyeSlash,
   faCheck,
+  faPrint,
 } from '@fortawesome/free-solid-svg-icons'
 
 // Add icons to library
@@ -63,7 +64,8 @@ library.add(
   faDesktop,
   faEye,
   faEyeSlash,
-  faCheck
+  faCheck,
+  faPrint
 )
 
 // Create the icon HTML elements
@@ -81,6 +83,7 @@ const desktopIcon = icon(faDesktop).html
 const eyeIcon = icon(faEye).html
 const eyeSlashIcon = icon(faEyeSlash).html
 const checkIcon = icon(faCheck).html
+const printIcon = icon(faPrint).html
 // Add these prefixes to the frontmatter section
 const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
 ---
@@ -89,7 +92,12 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
   <div id="main-navigation" class="py-6 print:hidden">
     <div class="container">
       <div class="wrapper">
-        <div class="ml-auto">
+        <div class="ml-auto flex items-center gap-4">
+          <button
+            onclick="window.print()"
+            class="!mt-1 block !h-6 !w-6 !border-none !p-0 !text-primary-500 hover:!text-primary-700 dark:!text-secondary-500 dark:hover:!text-secondary-100"
+            set:html={printIcon}
+          />
           <DarkMode />
         </div>
         <ResponsiveToggle />
