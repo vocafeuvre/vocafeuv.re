@@ -1,73 +1,1581 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
-import Hero from '../components/Hero.astro'
-import Feature from '../components/Feature.astro'
-import Counter from '../components/Counter.astro'
-import ContentMedia from '../components/ContentMedia.astro'
+import MinimalLayout from '../layouts/MinimalLayout.astro'
+import { library, icon } from '@fortawesome/fontawesome-svg-core'
+import {
+  faGithub,
+  faNodeJs,
+  faHtml5,
+  faCss,
+  faJs,
+  faGitAlt,
+  faLinkedin,
+  faPhp,
+  faRust,
+  faSass,
+  faLaravel,
+  faReact,
+} from '@fortawesome/free-brands-svg-icons'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+import ResponsiveToggle from '../components/ResponsiveToggle.astro'
+import { DarkMode } from 'accessible-astro-components'
+import {
+  faCode,
+  faProjectDiagram,
+  faPeopleGroup,
+  faMobile,
+  faRobot,
+  faWindowMaximize,
+  faDatabase,
+  faGears,
+  faBuildingColumns,
+  faServer,
+  faDesktop,
+  faEye,
+  faEyeSlash,
+  faCheck,
+  faPrint,
+} from '@fortawesome/free-solid-svg-icons'
+
+// Add icons to library
+library.add(
+  faGithub,
+  faLinkedin,
+  faGlobe,
+  faCode,
+  faProjectDiagram,
+  faPeopleGroup,
+  faMobile,
+  faJs,
+  faNodeJs,
+  faHtml5,
+  faGitAlt,
+  faCss,
+  faRobot,
+  faWindowMaximize,
+  faPhp,
+  faRust,
+  faDatabase,
+  faSass,
+  faLaravel,
+  faReact,
+  faGears,
+  faBuildingColumns,
+  faServer,
+  faDesktop,
+  faEye,
+  faEyeSlash,
+  faCheck,
+  faPrint
+)
+
+// Create the icon HTML elements
+const githubIcon = icon(faGithub).html
+const linkedinIcon = icon(faLinkedin).html
+const globeIcon = icon(faGlobe).html
+const codeIcon = icon(faCode).html
+const jsIcon = icon(faJs).html
+const htmlIcon = icon(faHtml5).html
+const cssIcon = icon(faCss).html
+const dbIcon = icon(faDatabase).html
+const gearsIcon = icon(faGears).html
+const serverIcon = icon(faServer).html
+const desktopIcon = icon(faDesktop).html
+const eyeIcon = icon(faEye).html
+const eyeSlashIcon = icon(faEyeSlash).html
+const checkIcon = icon(faCheck).html
+const printIcon = icon(faPrint).html
+// Add these prefixes to the frontmatter section
+const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
 ---
 
-<DefaultLayout title="Home">
-  <Hero />
-  <section class="my-64">
+<MinimalLayout title="Resume">
+  <div id="main-navigation" class="py-6 print:hidden">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Features</h2>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:tailwind" title="Tailwind CSS">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
-        </Feature>
-        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
-          17 components and counting, all tried and tested for the most optimal accessible experience for your visitors.
-        </Feature>
-        <Feature icon="mdi:looks" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
-        </Feature>
-        <Feature icon="mdi:eslint" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
-        </Feature>
-        <Feature icon="mdi:book-open-page-variant" title="Blog">
-          This theme comes with a fully integrated blog, dynamic pages and SEO optimization.
-        </Feature>
-        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
-        </Feature>
-        <Feature icon="mdi:theme-light-dark" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
-        </Feature>
-        <Feature icon="mdi:cog" title="Design System">
-          The theme offers some very handy utilities to help you build your website faster.
-        </Feature>
-        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
-          Excellent lighthouse scores means your website will load faster and get better SEO rankings.
-        </Feature>
+      <div class="wrapper">
+        <div class="ml-auto flex items-center gap-4">
+          <button
+            onclick="window.print()"
+            class="!mt-1 block !h-6 !w-6 !border-none !p-0 !text-primary-500 hover:!text-primary-700 dark:!text-secondary-500 dark:hover:!text-secondary-100"
+            set:html={printIcon}
+          />
+          <DarkMode />
+        </div>
+        <ResponsiveToggle />
       </div>
     </div>
-  </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible Components</h2>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
-        >separate package</a
-      >. They'll get you up and running in building an accessible solution for your visitors.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
-    </p>
-  </ContentMedia>
-  <section class="mb-32 mt-64">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Counters</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="520" title="Stars" sub="On GitHub" />
-        <Counter count="17" title="Accessible" sub="Components" />
-        <Counter count="500" title="Commits" sub="Merged" />
-        <Counter count="18+" title="Months" sub="Since launch" />
-      </div>
+  </div>
+  <main id="main-content" class="mb-12" transition:animate="fade">
+    <div class="fixed left-0 top-0 hidden w-full text-center font-courier text-sm tracking-wider print:block">
+      This resume is interactive at <a href="https://vocafeuv.re/resume" target="_blank">https://vocafeuv.re/resume</a>
     </div>
-  </section>
-</DefaultLayout>
+    <section
+      class="relative flex min-h-[480px] flex-col items-center sm:min-h-[420px] md:min-h-[360px] print:min-h-[240px]"
+    >
+      <div class="resume-hero-gradient absolute left-0 top-0 -z-50 h-full w-full"></div>
+      <div class="flex w-full flex-1 flex-col items-center justify-center">
+        <div class="h-32 w-full print:hidden"></div>
+        <div class="relative">
+          <h1 id="_name" class="text-shadow px-8 text-center text-6xl text-neutral-900 dark:text-white print:hidden">
+            vocafeuvre
+          </h1>
+          <h1
+            class="text-shadow hidden px-8 text-center text-6xl text-neutral-900 dark:text-white print:block print:dark:text-neutral-900"
+          >
+            Ralph Villanueva
+          </h1>
+          <div class="absolute -right-4 top-1/2 mt-2 -translate-y-1/2 print:hidden">
+            <button
+              id="_name_visible"
+              class="block !h-6 !w-6 !border-none !p-0 !text-neutral-500 hover:!text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-100"
+              set:html={eyeSlashIcon}
+              data-eye={eyeIcon}
+              data-eye-slash={eyeSlashIcon}
+            />
+          </div>
+        </div>
+        <h2
+          id="_job_title"
+          class="text-shadow relative mt-3 px-6 text-center font-doto text-3xl !font-semibold text-neutral-900 dark:text-white print:mt-2 print:hidden"
+          data-prefixes={JSON.stringify(prefixes)}
+        >
+          <span id="_prefix">Full Stack</span><span
+            id="_cursor"
+            class="absolute h-8 border-r-2 border-neutral-700 pl-6 pt-4 opacity-0 dark:border-white"></span>
+          <span class="ml-1">Developer</span>
+        </h2>
+        <h2
+          class="text-shadow mt-3 hidden px-6 text-center font-doto text-3xl !font-semibold text-neutral-900 dark:text-white print:mt-2 print:block print:dark:text-neutral-900"
+        >
+          Full Stack Developer
+        </h2>
+        <div class="mt-8 flex w-full items-center justify-center gap-6 print:mt-4">
+          <a
+            href="https://github.com/vocafeuvre"
+            target="_blank"
+            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+          >
+            <span class="h-4 w-4" set:html={githubIcon} />
+            <span class="print:hidden">GitHub</span>
+            <span class="hidden print:block">github.com/vocafeuvre</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ralph-villanueva-44ba80185/"
+            target="_blank"
+            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+          >
+            <span class="h-4 w-4" set:html={linkedinIcon} />
+            <span class="print:hidden">LinkedIn</span>
+            <span class="hidden print:block">linkedin.com/in/ralph-villanueva-44ba80185/</span>
+          </a>
+          <a
+            href="https://vocafeuv.re"
+            target="_blank"
+            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+          >
+            <span class="h-4 w-4" set:html={globeIcon} />
+            <span class="print:hidden">Website</span>
+            <span class="hidden print:block">vocafeuv.re</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="mt-8 flex h-full w-full flex-1 flex-col items-center px-20 print:mt-4 print:px-4">
+      <div
+        class="space-between flex h-full w-full max-w-[1024px] flex-1 flex-col justify-center gap-16 lg:flex-row lg:gap-10 print:flex-row print:gap-10"
+      >
+        <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:gap-5">
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">Why hire me</h3>
+            <ul class="!ml-1 flex flex-col gap-1">
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >7 years of professional dev history</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Owned projects from spec to deployment</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Led small and large teams</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Coded apps on desktop, mobile, and web</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Fluent in TypeScript</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Knows Node.js inside and out</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >HTML & CSS are my bread and butter</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Has a can-do attitude</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Has contributed to open source</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Up to date with the latest dev trends</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Am a TailwindCSS convert</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Uses AI for maximum productivity</span
+                >
+              </li>
+              <li class="group flex items-center gap-2">
+                <div
+                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
+                >
+                  <i
+                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
+                    set:html={checkIcon}
+                  />
+                </div>
+                <div class="hidden print:block">•</div>
+                <span
+                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
+                  >Coded my resume (instead of Google Docs)</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">My work history</h3>
+            <ul class="ml-2 flex flex-col print:ml-5">
+              <li class="relative flex items-center pb-4 pl-9 print:pl-0">
+                <span
+                  class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-[#FF6C00] to-[#ff00e0] print:hidden"
+                ></span>
+                <span
+                  class="absolute left-[3px] top-[3px] h-5 w-5 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
+                ></span>
+                <div class="gap flex flex-col">
+                  <span class="whitespace-nowrap text-lg">Lead Developer</span>
+                  <span class="flex items-end gap-2"
+                    ><a
+                      href="https://hoody.com"
+                      target="_blank"
+                      class="whitespace-nowrap font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                      >Hoody</a
+                    ><span class="whitespace-nowrap font-courier text-sm font-light">a privacy startup</span></span
+                  >
+                  <span class="text-sm text-neutral-500">2021 - Present</span>
+                </div>
+              </li>
+              <li class="relative flex items-center pb-4 pl-9 print:pl-0">
+                <span
+                  class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-[#FF6C00] to-[#ff00e0] print:hidden"
+                ></span>
+                <span
+                  class="absolute left-[5px] top-[5px] h-4 w-4 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
+                ></span>
+                <div class="gap flex flex-col">
+                  <span class="whitespace-nowrap text-lg">Full Stack Developer</span>
+                  <span class="flex items-end gap-2"
+                    ><a
+                      href="https://github.com/Panteum"
+                      target="_blank"
+                      class="whitespace-nowrap font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                      >Panteum</a
+                    ><span class="whitespace-nowrap font-courier text-sm font-light">a crypto startup</span></span
+                  >
+                  <span class="text-sm text-neutral-500">2019 - 2021</span>
+                </div>
+              </li>
+              <li class="relative flex items-center pb-4 pl-9 print:pl-0">
+                <span
+                  class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-transparent to-[#ff00e0] print:hidden"
+                ></span>
+                <span
+                  class="absolute left-[5px] top-[5px] h-4 w-4 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
+                ></span>
+                <div class="gap flex flex-col">
+                  <span class="whitespace-nowrap text-lg">Associate Software Developer</span>
+                  <span class="flex items-end gap-2"
+                    ><a
+                      href="https://alliance.com.ph"
+                      target="_blank"
+                      class="whitespace-nowrap font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                      >Alliance Software</a
+                    ><span class="whitespace-nowrap font-courier text-sm font-light">a software consultancy</span></span
+                  >
+                  <span class="text-sm text-neutral-500">2017 - 2019</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">My educational attainment</h3>
+            <ul class="ml-4 flex flex-col gap-2">
+              <li class="gap flex flex-col">
+                <span class="whitespace-nowrap text-lg">Masters in Business Administration</span>
+                <span class="flex items-end gap-2"
+                  ><a
+                    href="https://www.vuzf.bg"
+                    target="_blank"
+                    class="whitespace-nowrap font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                    >VUZF Sofia</a
+                  ><span class="whitespace-nowrap font-courier text-sm font-light">2022 - Ongoing</span></span
+                >
+              </li>
+              <li class="gap flex flex-col">
+                <span class="whitespace-nowrap text-lg">Bachelor of Science, Information Technology</span>
+                <span class="flex items-end gap-2"
+                  ><a
+                    href="https://www.universityofcebu.net/p/university-of-cebu-banilad-campus.html"
+                    target="_blank"
+                    class="whitespace-nowrap font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                    >University of Cebu - Banilad</a
+                  ><span class="whitespace-nowrap font-courier text-sm font-light">2013 - 2019</span></span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:gap-5">
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">Tools I've used</h3>
+            <ul class="ml-1 flex flex-col gap-2">
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400 print:!text-neutral-900"
+                  set:html={codeIcon}
+                />
+                <span>
+                  <a
+                    href="https://www.typescriptlang.org/"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">TypeScript</a
+                  >,
+                  <a href="https://www.php.net/" target="_blank" class="hover:underline print:!text-neutral-900">PHP</a
+                  >,
+                  <a href="https://www.rust-lang.org/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Rust</a
+                  >,
+                  <a
+                    href="https://dotnet.microsoft.com/languages/csharp"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">C#</a
+                  >
+                </span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400 print:!text-neutral-900"
+                  set:html={desktopIcon}
+                />
+                <span>
+                  <a href="https://nodejs.org/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Node.js</a
+                  >,
+                  <a href="https://httpd.apache.org/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Apache</a
+                  >,
+                  <a href="https://tauri.app/" target="_blank" class="hover:underline print:!text-neutral-900">Tauri</a
+                  >,
+                  <a href="https://www.electronjs.org/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Electron</a
+                  >
+                </span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400 print:!text-neutral-900"
+                  set:html={cssIcon}
+                />
+                <span>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">CSS</a
+                  >,
+                  <a href="https://tailwindcss.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >TailwindCSS</a
+                  >,
+                  <a href="https://sass-lang.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Sass</a
+                  >
+                </span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400 print:!text-neutral-900"
+                  set:html={htmlIcon}
+                />
+                <span>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">HTML</a
+                  >,
+                  <a href="https://handlebarsjs.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Handlebars</a
+                  >,
+                  <a
+                    href="https://mozilla.github.io/nunjucks/"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">Nunjucks</a
+                  >
+                </span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400 print:!text-neutral-900"
+                  set:html={dbIcon}
+                />
+                <span>
+                  <a href="https://www.mysql.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >MySQL</a
+                  >,
+                  <a href="https://www.sqlite.org/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >SQLite</a
+                  >,
+                  <a
+                    href="https://github.com/google/leveldb"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">LevelDB</a
+                  >,
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">IndexedDB</a
+                  >
+                </span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400 print:!text-neutral-900"
+                  set:html={jsIcon}
+                />
+                <span>
+                  <a href="https://svelte.dev/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Svelte</a
+                  >,
+                  <a href="https://react.dev/" target="_blank" class="hover:underline print:!text-neutral-900">React</a
+                  >,
+                  <a href="https://mithril.js.org/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Mithril</a
+                  >,
+                  <a href="https://jquery.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >jQuery</a
+                  >
+                </span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-primary-400 print:!text-neutral-900"
+                  set:html={serverIcon}
+                />
+                <span>
+                  <a href="https://adonisjs.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >AdonisJS</a
+                  >,
+                  <a href="https://expressjs.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Express</a
+                  >,
+                  <a
+                    href="https://www.slimframework.com/"
+                    target="_blank"
+                    class="hover:underline print:!text-neutral-900">Slim</a
+                  >,
+                  <a href="https://laravel.com/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Laravel</a
+                  >
+                </span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="mx-2 h-4 w-4 text-neutral-600 dark:text-tertiary-400 print:!text-neutral-900"
+                  set:html={gearsIcon}
+                />
+                <span>
+                  <a href="https://gulpjs.com/" target="_blank" class="hover:underline print:!text-neutral-900">Gulp</a
+                  >,
+                  <a href="https://webpack.js.org/" target="_blank" class="hover:underline print:!text-neutral-900"
+                    >Webpack</a
+                  >,
+                  <a href="https://vitejs.dev/" target="_blank" class="hover:underline print:!text-neutral-900">Vite</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">Stuff I've done</h3>
+            <ul class="ml-3.5 flex flex-col gap-4">
+              <li class="gap flex flex-col">
+                <a
+                  href="https://hoody.com"
+                  target="_blank"
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-900"
+                  ><span>hoody.com</span></a
+                >
+                <span class="text-sm text-neutral-500"
+                  >Led development on the web app, installer, support system, and analytics. Contributed to the website.</span
+                >
+              </li>
+              <li class="gap flex flex-col">
+                <a
+                  href="https://peakpurity.bg"
+                  target="_blank"
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-900"
+                  ><span>peakpurity.bg</span></a
+                >
+                <span class="text-sm text-neutral-500"
+                  >Webmaster and co-designer. Contributed to the brand and product design, and the ads as well.</span
+                >
+              </li>
+              <li class="gap flex flex-col">
+                <a
+                  href="https://esndp.jfc.com.ph/user"
+                  target="_blank"
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-900"
+                  ><span>esndp.jfc.com.ph</span></a
+                >
+                <span class="text-sm text-neutral-500"
+                  >Fixed critical bugs that were stopping the end users from using the system and resorting to
+                  spreadsheets. Added much-needed features to keep the end users from preferring spreadsheets.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-courier text-2xl font-semibold">My work references</h3>
+            <ul class="ml-3.5 flex flex-col gap-4">
+              <li class="flex flex-col gap-1">
+                <span
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-900"
+                  >Arnaud Castellanos Galea</span
+                >
+                <span class="text-sm text-neutral-500">Former Lead Developer @ Panteum</span>
+                <div class="flex items-center gap-2">
+                  <a
+                    href="https://linkedin.com/in/arnaud-castellanos-galea-bb5a21186"
+                    target="_blank"
+                    class="flex items-center gap-1 text-sm !text-neutral-500 hover:!text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="mr-1 inline-block"
+                    >
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                      ></path>
+                    </svg>LinkedIn Profile</a
+                  >
+                  <span>•</span>
+                  <span class="text-sm text-neutral-500">poderosoarnaud@gmail.com</span>
+                </div>
+              </li>
+              <li class="flex flex-col gap-1">
+                <span
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-900"
+                  >Anthony Reboh</span
+                >
+                <span class="text-sm text-neutral-500">Founder @ Hoody</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-sm text-neutral-500">anthony@hoody.com</span>
+                </div>
+              </li>
+              <li class="gap flex flex-col">
+                <span
+                  class="!text-underline whitespace-nowrap font-medium !fire-gradient-text print:!text-neutral-900 print:dark:!text-neutral-900"
+                  >Vince Banzon</span
+                >
+                <span class="text-sm text-neutral-500">Co-worker @ Panteum</span>
+                <div class="flex items-center gap-2">
+                  <a
+                    href="https://linkedin.com/in/vincebanzon"
+                    target="_blank"
+                    class="flex items-center gap-1 text-sm !text-neutral-500 hover:!text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="mr-1 inline-block"
+                    >
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                      ></path>
+                    </svg>LinkedIn Profile</a
+                  >
+                  <span>•</span>
+                  <span class="text-sm text-neutral-500">vincebanzon@pm.me</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <style lang="scss" is:global>
+    @use '../assets/scss/base/breakpoint' as *;
+    @use '../assets/scss/base/outline' as *;
+
+    #main-navigation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+
+      > .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+      }
+    }
+
+    .darkmode-toggle {
+      padding: 0;
+      border: none;
+
+      svg {
+        width: 30px;
+        margin-top: 4px;
+      }
+
+      svg path {
+        fill: var(--action-color);
+      }
+
+      &:hover {
+        svg path {
+          fill: var(--action-color-state);
+        }
+      }
+
+      &:focus {
+        @include outline;
+
+        &:not(:focus-visible) {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  </style>
+  <style lang="scss">
+    a:not(.button) {
+      color: var(--font-color);
+
+      &:visited {
+        color: var(--action-color-state);
+      }
+    }
+
+    .text-shadow {
+      text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .resume-hero-gradient {
+      background: rgb(22, 3, 22);
+      background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1 0%, #00ffe5 15%, #ff00e1 33%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000 30%, #ffffff00 90%, #ffffff00 100%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000 30%, #ffffff00 90%, #ffffff00 100%);
+      animation: pulse-gradient 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-gradient {
+      0%,
+      100% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1ff 0%, #00ffe5ff 15%, #ff00e1ff 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      2.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1fc 0%, #00ffe5fc 15%, #ff00e1fc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f9 0%, #00ffe5f9 15%, #ff00e1f9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      7.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f7 0%, #00ffe5f7 15%, #ff00e1f7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      10% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f5 0%, #00ffe5f5 15%, #ff00e1f5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      12.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f2 0%, #00ffe5f2 15%, #ff00e1f2 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      15% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f0 0%, #00ffe5f0 15%, #ff00e1f0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      17.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1ed 0%, #00ffe5ed 15%, #ff00e1ed 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      20% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1eb 0%, #00ffe5eb 15%, #ff00e1eb 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      22.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e9 0%, #00ffe5e9 15%, #ff00e1e9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      25% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e7 0%, #00ffe5e7 15%, #ff00e1e7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      27.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e5 0%, #00ffe5e5 15%, #ff00e1e5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      30% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e3 0%, #00ffe5e3 15%, #ff00e1e3 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      32.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e1 0%, #00ffe5e1 15%, #ff00e1e1 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      35% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e0 0%, #00ffe5e0 15%, #ff00e1e0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      37.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1de 0%, #00ffe5de 15%, #ff00e1de 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      40% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dd 0%, #00ffe5dd 15%, #ff00e1dd 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      42.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dc 0%, #00ffe5dc 15%, #ff00e1dc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      45% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1da 0%, #00ffe5da 15%, #ff00e1da 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      47.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1d9 0%, #00ffe5d9 15%, #ff00e1d9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      50% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1d8 0%, #00ffe5d8 15%, #ff00e1d8 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      52.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1d9 0%, #00ffe5d9 15%, #ff00e1d9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      55% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1da 0%, #00ffe5da 15%, #ff00e1da 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      57.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dc 0%, #00ffe5dc 15%, #ff00e1dc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      60% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1dd 0%, #00ffe5dd 15%, #ff00e1dd 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      62.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1de 0%, #00ffe5de 15%, #ff00e1de 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      65% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e0 0%, #00ffe5e0 15%, #ff00e1e0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      67.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e1 0%, #00ffe5e1 15%, #ff00e1e1 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      70% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e3 0%, #00ffe5e3 15%, #ff00e1e3 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      72.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e5 0%, #00ffe5e5 15%, #ff00e1e5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      75% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e7 0%, #00ffe5e7 15%, #ff00e1e7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      77.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1e9 0%, #00ffe5e9 15%, #ff00e1e9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      80% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1eb 0%, #00ffe5eb 15%, #ff00e1eb 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      82.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1ed 0%, #00ffe5ed 15%, #ff00e1ed 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      85% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f0 0%, #00ffe5f0 15%, #ff00e1f0 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      87.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f2 0%, #00ffe5f2 15%, #ff00e1f2 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      90% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f5 0%, #00ffe5f5 15%, #ff00e1f5 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      92.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f7 0%, #00ffe5f7 15%, #ff00e1f7 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      95% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1f9 0%, #00ffe5f9 15%, #ff00e1f9 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+      97.5% {
+        background-image: repeating-conic-gradient(from 7.5deg at 50% 70%, #ff00e1fc 0%, #00ffe5fc 15%, #ff00e1fc 33%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, #ffffff5b 60%, #ffffff00 100%);
+      }
+    }
+
+    body.darkmode {
+      .text-shadow {
+        text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .resume-hero-gradient {
+        background: var(--background);
+        background-image: repeating-conic-gradient(
+            from 7.5deg at 50% 70%,
+            #ff00e1 0%,
+            #7788e220 7.5%,
+            #00ffe5 15%,
+            #7788e220 22.5%,
+            #ff00e1 34%
+          ),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000 30%, #00000000 90%);
+        mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000000d0 30%, #00000000 90%);
+        animation: pulse-gradient-dark 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-gradient-dark {
+        0%,
+        100% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1ff 0%,
+              #7788e220 7.5%,
+              #00ffe5ff 15%,
+              #7788e220 22.5%,
+              #ff00e1ff 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        2.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1fc 0%,
+              #7788e220 7.5%,
+              #00ffe5fc 15%,
+              #7788e220 22.5%,
+              #ff00e1fc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f9 0%,
+              #7788e220 7.5%,
+              #00ffe5f9 15%,
+              #7788e220 22.5%,
+              #ff00e1f9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        7.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f7 0%,
+              #7788e220 7.5%,
+              #00ffe5f7 15%,
+              #7788e220 22.5%,
+              #ff00e1f7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        10% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f5 0%,
+              #7788e220 7.5%,
+              #00ffe5f5 15%,
+              #7788e220 22.5%,
+              #ff00e1f5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        12.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f2 0%,
+              #7788e220 7.5%,
+              #00ffe5f2 15%,
+              #7788e220 22.5%,
+              #ff00e1f2 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        15% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f0 0%,
+              #7788e220 7.5%,
+              #00ffe5f0 15%,
+              #7788e220 22.5%,
+              #ff00e1f0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        17.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1ed 0%,
+              #7788e220 7.5%,
+              #00ffe5ed 15%,
+              #7788e220 22.5%,
+              #ff00e1ed 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        20% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1eb 0%,
+              #7788e220 7.5%,
+              #00ffe5eb 15%,
+              #7788e220 22.5%,
+              #ff00e1eb 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        22.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e9 0%,
+              #7788e220 7.5%,
+              #00ffe5e9 15%,
+              #7788e220 22.5%,
+              #ff00e1e9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        25% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e7 0%,
+              #7788e220 7.5%,
+              #00ffe5e7 15%,
+              #7788e220 22.5%,
+              #ff00e1e7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        27.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e5 0%,
+              #7788e220 7.5%,
+              #00ffe5e5 15%,
+              #7788e220 22.5%,
+              #ff00e1e5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        30% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e3 0%,
+              #7788e220 7.5%,
+              #00ffe5e3 15%,
+              #7788e220 22.5%,
+              #ff00e1e3 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        32.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e1 0%,
+              #7788e220 7.5%,
+              #00ffe5e1 15%,
+              #7788e220 22.5%,
+              #ff00e1e1 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        35% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e0 0%,
+              #7788e220 7.5%,
+              #00ffe5e0 15%,
+              #7788e220 22.5%,
+              #ff00e1e0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        37.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1de 0%,
+              #7788e220 7.5%,
+              #00ffe5de 15%,
+              #7788e220 22.5%,
+              #ff00e1de 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        40% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dd 0%,
+              #7788e220 7.5%,
+              #00ffe5dd 15%,
+              #7788e220 22.5%,
+              #ff00e1dd 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        42.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dc 0%,
+              #7788e220 7.5%,
+              #00ffe5dc 15%,
+              #7788e220 22.5%,
+              #ff00e1dc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        45% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1da 0%,
+              #7788e220 7.5%,
+              #00ffe5da 15%,
+              #7788e220 22.5%,
+              #ff00e1da 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        47.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1d9 0%,
+              #7788e220 7.5%,
+              #00ffe5d9 15%,
+              #7788e220 22.5%,
+              #ff00e1d9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        50% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1d8 0%,
+              #7788e220 7.5%,
+              #00ffe5d8 15%,
+              #7788e220 22.5%,
+              #ff00e1d8 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        52.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1d9 0%,
+              #7788e220 7.5%,
+              #00ffe5d9 15%,
+              #7788e220 22.5%,
+              #ff00e1d9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        55% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1da 0%,
+              #7788e220 7.5%,
+              #00ffe5da 15%,
+              #7788e220 22.5%,
+              #ff00e1da 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        57.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dc 0%,
+              #7788e220 7.5%,
+              #00ffe5dc 15%,
+              #7788e220 22.5%,
+              #ff00e1dc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        60% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1dd 0%,
+              #7788e220 7.5%,
+              #00ffe5dd 15%,
+              #7788e220 22.5%,
+              #ff00e1dd 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        62.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1de 0%,
+              #7788e220 7.5%,
+              #00ffe5de 15%,
+              #7788e220 22.5%,
+              #ff00e1de 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        65% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e0 0%,
+              #7788e220 7.5%,
+              #00ffe5e0 15%,
+              #7788e220 22.5%,
+              #ff00e1e0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        67.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e1 0%,
+              #7788e220 7.5%,
+              #00ffe5e1 15%,
+              #7788e220 22.5%,
+              #ff00e1e1 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        70% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e3 0%,
+              #7788e220 7.5%,
+              #00ffe5e3 15%,
+              #7788e220 22.5%,
+              #ff00e1e3 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        72.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e5 0%,
+              #7788e220 7.5%,
+              #00ffe5e5 15%,
+              #7788e220 22.5%,
+              #ff00e1e5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        75% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e7 0%,
+              #7788e220 7.5%,
+              #00ffe5e7 15%,
+              #7788e220 22.5%,
+              #ff00e1e7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        77.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1e9 0%,
+              #7788e220 7.5%,
+              #00ffe5e9 15%,
+              #7788e220 22.5%,
+              #ff00e1e9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        80% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1eb 0%,
+              #7788e220 7.5%,
+              #00ffe5eb 15%,
+              #7788e220 22.5%,
+              #ff00e1eb 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        82.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1ed 0%,
+              #7788e220 7.5%,
+              #00ffe5ed 15%,
+              #7788e220 22.5%,
+              #ff00e1ed 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        85% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f0 0%,
+              #7788e220 7.5%,
+              #00ffe5f0 15%,
+              #7788e220 22.5%,
+              #ff00e1f0 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        87.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f2 0%,
+              #7788e220 7.5%,
+              #00ffe5f2 15%,
+              #7788e220 22.5%,
+              #ff00e1f2 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        90% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f5 0%,
+              #7788e220 7.5%,
+              #00ffe5f5 15%,
+              #7788e220 22.5%,
+              #ff00e1f5 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        92.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f7 0%,
+              #7788e220 7.5%,
+              #00ffe5f7 15%,
+              #7788e220 22.5%,
+              #ff00e1f7 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        95% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1f9 0%,
+              #7788e220 7.5%,
+              #00ffe5f9 15%,
+              #7788e220 22.5%,
+              #ff00e1f9 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+        97.5% {
+          background-image: repeating-conic-gradient(
+              from 7.5deg at 50% 70%,
+              #ff00e1fc 0%,
+              #7788e220 7.5%,
+              #00ffe5fc 15%,
+              #7788e220 22.5%,
+              #ff00e1fc 34%
+            ),
+            radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
+        }
+      }
+    }
+
+    @media print {
+      @page {
+        margin-right: 0.75in;
+        margin-left: 0.75in;
+      }
+
+      html,
+      body {
+        font-size: 11px;
+      }
+
+      body {
+        --font-color: var(--neutral-900) !important;
+        --action-color: var(--primary-500) !important;
+        --action-color-state: var(--primary-700) !important;
+        --background: var(--neutral-100) !important;
+        --primary-background: var(--primary-100) !important;
+        --neutral-background: var(--neutral-200) !important;
+      }
+
+      .resume-hero-gradient {
+        display: none;
+      }
+    }
+  </style>
+  <script>
+    const prefixElement = document.getElementById('_prefix')
+    const cursorElement = document.getElementById('_cursor')
+    if (!prefixElement || !cursorElement) throw new Error('Required elements not found')
+
+    const prefixes = JSON.parse(prefixElement.closest('[data-prefixes]')?.getAttribute('data-prefixes') || '[]')
+    let currentPrefixIndex = 0
+    let currentText = ''
+    let isDeleting = false
+    let cursorVisible = true
+
+    function typeText() {
+      const currentPrefix = prefixes[currentPrefixIndex]
+
+      if (isDeleting) {
+        currentText = currentPrefix.substring(0, currentText.length - 1)
+      } else {
+        currentText = currentPrefix.substring(0, currentText.length + 1)
+      }
+
+      prefixElement.textContent = currentText
+      // Update cursor position to end of text
+      const textWidth = prefixElement.offsetWidth
+      cursorElement.style.left = `${textWidth}px`
+
+      let typeSpeed = 50
+
+      if (isDeleting) {
+        typeSpeed /= 2
+      }
+
+      if (!isDeleting && currentText === currentPrefix) {
+        typeSpeed = 2000 // Pause at end of typing
+        isDeleting = true
+      } else if (isDeleting && currentText === '') {
+        isDeleting = false
+        currentPrefixIndex = (currentPrefixIndex + 1) % prefixes.length
+        typeSpeed = 1000 // Pause before typing next
+      }
+
+      setTimeout(typeText, typeSpeed)
+    }
+
+    // Add cursor blink effect
+    setInterval(() => {
+      cursorVisible = !cursorVisible
+      cursorElement.style.opacity = cursorVisible ? '1' : '0'
+    }, 530) // Blink every 530ms
+
+    // Start the typing animation
+    typeText()
+
+    const nameVisibleBtn = document.getElementById('_name_visible')
+    if (!nameVisibleBtn) throw new Error('Name visible button not found')
+    const nameElement = document.getElementById('_name')
+    if (!nameElement) throw new Error('Name element not found')
+
+    const eyeIcon = nameVisibleBtn.getAttribute('data-eye')
+    const eyeSlashIcon = nameVisibleBtn.getAttribute('data-eye-slash')
+
+    nameVisibleBtn.addEventListener('click', () => {
+      const isVisible = nameVisibleBtn.innerHTML === eyeIcon
+      nameVisibleBtn.innerHTML = isVisible ? eyeSlashIcon : eyeIcon
+      nameElement.textContent = isVisible ? 'vocafeuvre' : 'Ralph Villanueva'
+
+      // Toggle button color classes based on visibility state
+      if (isVisible) {
+        nameVisibleBtn.classList.remove('!text-secondary-500')
+        nameVisibleBtn.classList.add('!text-neutral-500')
+        nameVisibleBtn.classList.remove('hover:!text-secondary-700')
+        nameVisibleBtn.classList.add('hover:!text-neutral-700')
+        nameVisibleBtn.classList.remove('dark:!text-secondary-400')
+        nameVisibleBtn.classList.add('dark:!text-neutral-400')
+        nameVisibleBtn.classList.remove('dark:hover:!text-secondary-100')
+        nameVisibleBtn.classList.add('dark:hover:!text-neutral-100')
+      } else {
+        nameVisibleBtn.classList.remove('!text-neutral-500')
+        nameVisibleBtn.classList.add('!text-secondary-500')
+        nameVisibleBtn.classList.remove('hover:!text-neutral-700')
+        nameVisibleBtn.classList.add('hover:!text-secondary-700')
+        nameVisibleBtn.classList.remove('dark:!text-neutral-400')
+        nameVisibleBtn.classList.add('dark:!text-secondary-400')
+        nameVisibleBtn.classList.remove('dark:hover:!text-neutral-100')
+        nameVisibleBtn.classList.add('dark:hover:!text-secondary-100')
+      }
+    })
+  </script>
+</MinimalLayout>
