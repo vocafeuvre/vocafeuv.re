@@ -21,7 +21,7 @@ const {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link id="favicon" rel="icon" type="image/png" href="/favicon-light.png" />
 
     <SiteMeta
       title={title}
@@ -32,6 +32,21 @@ const {
       image={image}
       author={author}
     />
+
+    <script>
+      // Watch for color scheme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon)
+
+      // Initial favicon setup
+      updateFavicon()
+
+      function updateFavicon() {
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+        const favicon = document.getElementById('favicon') as HTMLLinkElement
+
+        favicon.href = isDarkMode ? '/favicon-dark.png' : '/favicon-light.png'
+      }
+    </script>
   </head>
   <body>
     <Header />
