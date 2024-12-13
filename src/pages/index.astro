@@ -109,24 +109,27 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
       This resume is interactive at <a href="https://vocafeuv.re/resume" target="_blank">https://vocafeuv.re/resume</a>
     </div>
     <section
-      class="relative flex min-h-[480px] flex-col items-center sm:min-h-[420px] md:min-h-[360px] print:min-h-[240px]"
+      class="relative flex min-h-[360px] flex-col items-center sm:min-h-[360px] lg:min-h-[480px] print:min-h-[240px]"
     >
       <div class="resume-hero-gradient absolute left-0 top-0 -z-50 h-full w-full"></div>
       <div class="flex w-full flex-1 flex-col items-center justify-center">
-        <div class="h-32 w-full print:hidden"></div>
+        <div class="h-8 w-full md:h-12 lg:h-32 print:hidden"></div>
         <div class="relative">
-          <h1 id="_name" class="text-shadow px-8 text-center text-6xl text-neutral-900 dark:text-white print:hidden">
+          <h1
+            id="_name"
+            class="text-shadow px-8 text-center text-5xl text-neutral-900 dark:text-white lg:text-6xl print:hidden"
+          >
             vocafeuvre
           </h1>
           <h1
-            class="text-shadow hidden px-8 text-center text-6xl text-neutral-900 dark:text-white print:block print:dark:text-neutral-900"
+            class="text-shadow hidden px-8 text-center text-5xl text-neutral-900 dark:text-white lg:text-6xl print:block print:dark:text-neutral-900"
           >
             Ralph Villanueva
           </h1>
-          <div class="absolute -right-4 top-1/2 mt-2 -translate-y-1/2 print:hidden">
+          <div class="absolute -right-1 top-1/2 mt-1 -translate-y-1/2 sm:-right-4 md:mt-2 print:hidden">
             <button
               id="_name_visible"
-              class="block !h-6 !w-6 !border-none !p-0 !text-neutral-500 hover:!text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-100"
+              class="block !h-5 !w-5 !border-none !p-0 !text-neutral-500 hover:!text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-100 sm:!h-6 sm:!w-6"
               set:html={eyeSlashIcon}
               data-eye={eyeIcon}
               data-eye-slash={eyeSlashIcon}
@@ -135,7 +138,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
         </div>
         <h2
           id="_job_title"
-          class="text-shadow relative mt-3 px-6 text-center font-doto text-3xl !font-semibold text-neutral-900 dark:text-white print:mt-2 print:hidden"
+          class="text-shadow relative mt-3 px-6 text-center font-doto text-2xl !font-semibold text-neutral-900 dark:text-white lg:text-3xl print:mt-2 print:hidden"
           data-prefixes={JSON.stringify(prefixes)}
         >
           <span id="_prefix">Full Stack</span><span
@@ -144,7 +147,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
           <span class="ml-1">Developer</span>
         </h2>
         <h2
-          class="text-shadow mt-3 hidden px-6 text-center font-doto text-3xl !font-semibold text-neutral-900 dark:text-white print:mt-2 print:block print:dark:text-neutral-900"
+          class="text-shadow mt-3 hidden px-6 text-center font-doto text-2xl !font-semibold text-neutral-900 dark:text-white lg:text-3xl print:mt-2 print:block print:dark:text-neutral-900"
         >
           Full Stack Developer
         </h2>
@@ -179,7 +182,9 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
         </div>
       </div>
     </section>
-    <section class="mt-8 flex h-full w-full flex-1 flex-col items-center px-20 print:mt-4 print:px-4">
+    <section
+      class="mt-1 flex h-full w-full flex-1 flex-col items-center px-6 sm:px-10 md:mt-8 md:px-12 lg:px-20 print:mt-4 print:px-4"
+    >
       <div
         class="space-between flex h-full w-full max-w-[1024px] flex-1 flex-col justify-center gap-16 lg:flex-row lg:gap-10 print:flex-row print:gap-10"
       >
@@ -396,7 +401,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                 ></span>
                 <div class="gap flex flex-col">
                   <span class="whitespace-nowrap text-lg">Lead Developer</span>
-                  <span class="flex items-end gap-2"
+                  <span class="flex flex-col gap-2 sm:flex-row sm:items-end"
                     ><a
                       href="https://hoody.com"
                       target="_blank"
@@ -416,7 +421,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                 ></span>
                 <div class="gap flex flex-col">
                   <span class="whitespace-nowrap text-lg">Full Stack Developer</span>
-                  <span class="flex items-end gap-2"
+                  <span class="flex flex-col gap-2 sm:flex-row sm:items-end"
                     ><a
                       href="https://github.com/Panteum"
                       target="_blank"
@@ -436,7 +441,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                 ></span>
                 <div class="gap flex flex-col">
                   <span class="whitespace-nowrap text-lg">Associate Software Developer</span>
-                  <span class="flex items-end gap-2"
+                  <span class="flex flex-col gap-2 sm:flex-row sm:items-end"
                     ><a
                       href="https://alliance.com.ph"
                       target="_blank"
@@ -454,22 +459,22 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
             <ul class="ml-4 flex flex-col gap-2">
               <li class="gap flex flex-col">
                 <span class="whitespace-nowrap text-lg">Masters in Business Administration</span>
-                <span class="flex items-end gap-2"
+                <span class="flex flex-col gap-2 sm:flex-row sm:items-end"
                   ><a
                     href="https://www.vuzf.bg"
                     target="_blank"
-                    class="whitespace-nowrap font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                    class="font-medium transition-all !fire-gradient-text hover:tracking-wider sm:whitespace-nowrap print:!text-neutral-900 print:dark:!text-neutral-900"
                     >VUZF Sofia</a
                   ><span class="whitespace-nowrap font-courier text-sm font-light">2022 - Ongoing</span></span
                 >
               </li>
               <li class="gap flex flex-col">
-                <span class="whitespace-nowrap text-lg">Bachelor of Science, Information Technology</span>
-                <span class="flex items-end gap-2"
+                <span class="text-lg sm:whitespace-nowrap">Bachelor of Science, Information Technology</span>
+                <span class="flex flex-col gap-2 sm:flex-row sm:items-end"
                   ><a
                     href="https://www.universityofcebu.net/p/university-of-cebu-banilad-campus.html"
                     target="_blank"
-                    class="whitespace-nowrap font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                    class="font-medium transition-all !fire-gradient-text hover:tracking-wider sm:whitespace-nowrap print:!text-neutral-900 print:dark:!text-neutral-900"
                     >University of Cebu - Banilad</a
                   ><span class="whitespace-nowrap font-courier text-sm font-light">2013 - 2019</span></span
                 >
@@ -692,7 +697,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                   >Arnaud Castellanos Galea</span
                 >
                 <span class="text-sm text-neutral-500">Former Lead Developer @ Panteum</span>
-                <div class="flex items-center gap-2">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
                   <a
                     href="https://linkedin.com/in/arnaud-castellanos-galea-bb5a21186"
                     target="_blank"
@@ -711,7 +716,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                       ></path>
                     </svg>LinkedIn Profile</a
                   >
-                  <span>•</span>
+                  <span class="hidden sm:block">•</span>
                   <span class="text-sm text-neutral-500">poderosoarnaud@gmail.com</span>
                 </div>
               </li>
@@ -721,7 +726,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                   >Johann Go</span
                 >
                 <span class="text-sm text-neutral-500">Co-worker @ Hoody</span>
-                <div class="flex items-center gap-2">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
                   <a
                     href="https://www.linkedin.com/in/johann-go-05b5b3109/"
                     target="_blank"
@@ -740,7 +745,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                       ></path>
                     </svg>LinkedIn Profile</a
                   >
-                  <span>•</span>
+                  <span class="hidden sm:block">•</span>
                   <span class="text-sm text-neutral-500">johann.isaac.go@gmail.com</span>
                 </div>
               </li>
@@ -750,7 +755,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                   >Vince Banzon</span
                 >
                 <span class="text-sm text-neutral-500">Co-worker @ Panteum</span>
-                <div class="flex items-center gap-2">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
                   <a
                     href="https://linkedin.com/in/vincebanzon"
                     target="_blank"
@@ -769,7 +774,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
                       ></path>
                     </svg>LinkedIn Profile</a
                   >
-                  <span>•</span>
+                  <span class="hidden sm:block">•</span>
                   <span class="text-sm text-neutral-500">vincebanzon@pm.me</span>
                 </div>
               </li>
@@ -1482,6 +1487,13 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
             ),
             radial-gradient(ellipse 100% 100% at 50% 50%, #000000 30%, var(--background) 100%);
         }
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      html,
+      body {
+        font-size: 14px;
       }
     }
 
