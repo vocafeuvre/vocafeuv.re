@@ -113,7 +113,9 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
             class="!mt-1 block !h-6 !w-6 !border-none !p-0 !text-primary-500 hover:!text-primary-700 dark:!text-secondary-500 dark:hover:!text-secondary-100"
             set:html={printIcon}
           />
-          <DarkMode />
+          <div id="_dark_mode_wrapper" class="flex items-center">
+            <DarkMode />
+          </div>
         </div>
         <ResponsiveToggle />
       </div>
@@ -181,7 +183,7 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
           <a
             href="https://www.linkedin.com/in/ralph-villanueva-44ba80185/"
             target="_blank"
-            class="text-shadow text-md group inline text-center sm:inline-flex items-center !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+            class="text-shadow text-md group inline items-center text-center !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 sm:inline-flex print:!text-neutral-900 print:dark:!text-neutral-900"
           >
             <span class="mr-2 inline-block h-4 w-4" set:html={linkedinIcon} />
             <span class="hidden group-hover:hidden md:inline print:hidden">LinkedIn</span>
@@ -1653,6 +1655,18 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
         nameVisibleBtn.classList.add('dark:!text-secondary-400')
         nameVisibleBtn.classList.remove('dark:hover:!text-neutral-100')
         nameVisibleBtn.classList.add('dark:hover:!text-secondary-100')
+      }
+    })
+
+    const darkModeWrapper = document.getElementById('_dark_mode_wrapper')
+    if (!darkModeWrapper) throw new Error('Dark mode wrapper not found')
+    darkModeWrapper.addEventListener('click', () => {
+      // Check if browser is Safari
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+      
+      // If it's Safari, refresh the page
+      if (isSafari) {
+        window.location.reload()
       }
     })
   </script>
