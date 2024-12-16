@@ -34,7 +34,10 @@ import {
   faEyeSlash,
   faCheck,
   faPrint,
+  faComments,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons'
+import ChatBot from '../components/ChatBot'
 
 // Add icons to library
 library.add(
@@ -65,7 +68,9 @@ library.add(
   faEye,
   faEyeSlash,
   faCheck,
-  faPrint
+  faPrint,
+  faComments,
+  faTimes
 )
 
 // Create the icon HTML elements
@@ -84,6 +89,8 @@ const eyeIcon = icon(faEye).html
 const eyeSlashIcon = icon(faEyeSlash).html
 const checkIcon = icon(faCheck).html
 const printIcon = icon(faPrint).html
+const commentsIcon = icon(faComments).html
+const closeIcon = icon(faTimes).html
 // Add these prefixes to the frontmatter section
 const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
 ---
@@ -784,6 +791,28 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
       </div>
     </section>
   </main>
+  <div class="fixed bottom-4 right-4 z-50 flex items-center gap-3 print:hidden">
+    <div class="relative font-doto text-lg text-neutral-900 dark:text-white">
+      <span id="_chat_text"></span>
+      <span id="_chat_cursor" class="absolute right-0 top-0 hidden h-7 border-r-2 border-neutral-700 dark:border-white">
+      </span>
+    </div>
+    <button
+      id="_chat_button"
+      class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#ff00e1] to-[#00ffe5] !p-0 text-white shadow-lg transition-transform hover:scale-110"
+    >
+      <span class="flex h-7 w-7 items-center justify-center" set:html={commentsIcon} />
+    </button>
+    <div id="_chat_container" class="fixed bottom-8 right-8 z-50 hidden">
+      <button
+        id="_chat_close"
+        class="absolute -right-4 -top-4 rounded-full bg-neutral-800 !border-none !p-0 text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-200 z-10"
+      >
+        <span class="flex h-4 w-4 m-2 items-center justify-center" set:html={closeIcon} />
+      </button>
+      <ChatBot client:only="react" />
+    </div>
+  </div>
   <style lang="scss" is:global>
     @use '../assets/scss/base/breakpoint' as *;
     @use '../assets/scss/base/outline' as *;
@@ -1606,6 +1635,81 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
         nameVisibleBtn.classList.add('dark:!text-secondary-400')
         nameVisibleBtn.classList.remove('dark:hover:!text-neutral-100')
         nameVisibleBtn.classList.add('dark:hover:!text-secondary-100')
+      }
+    })
+  </script>
+  <script>
+    const chatButton = document.querySelector('#_chat_button')
+    const chatContainer = document.querySelector('#_chat_container')
+    const chatText = document.querySelector('#_chat_text')
+    const chatCursor = document.querySelector('#_chat_cursor') as HTMLElement
+    const chatCloseButton = document.querySelector('#_chat_close')
+    let chatVisible = false
+    let typingInterval: any
+
+    chatButton?.addEventListener('click', () => {
+      chatVisible = !chatVisible
+      if (chatContainer) {
+        chatContainer.classList.toggle('hidden')
+      }
+    })
+
+    chatButton?.addEventListener('mouseenter', () => {
+      if (chatText && chatCursor) {
+        chatCursor.classList.remove('hidden')
+
+        const text = 'Chat with me'
+        let index = 0
+        chatText.textContent = ''
+
+        // Clear any existing interval
+        if (typingInterval) {
+          clearInterval(typingInterval)
+        }
+
+        // Start typing effect
+        typingInterval = setInterval(() => {
+          if (index < text.length) {
+            chatText.textContent += text[index]
+            index++
+          } else {
+            if (typingInterval) {
+              clearInterval(typingInterval)
+            }
+          }
+        }, 100)
+
+        // Show and animate cursor
+        chatCursor.style.opacity = '1'
+        chatCursor.animate(
+          [
+            { opacity: 1, offset: 0 },
+            { opacity: 0, offset: 0.5 },
+            { opacity: 1, offset: 1 },
+          ],
+          {
+            duration: 1000,
+            iterations: Infinity,
+          }
+        )
+      }
+    })
+
+    chatButton?.addEventListener('mouseleave', () => {
+      if (chatText && chatCursor) {
+        chatText.textContent = ''
+        chatCursor.style.opacity = '0'
+        chatCursor.classList.add('hidden')
+        if (typingInterval) {
+          clearInterval(typingInterval)
+        }
+      }
+    })
+
+    chatCloseButton?.addEventListener('click', () => {
+      chatVisible = false
+      if (chatContainer) {
+        chatContainer.classList.add('hidden')
       }
     })
   </script>
