@@ -36,6 +36,7 @@ import {
   faPrint,
   faComments,
   faTimes,
+  faEnvelope,
 } from '@fortawesome/free-solid-svg-icons'
 import ChatBot from '../components/ChatBot'
 
@@ -70,7 +71,8 @@ library.add(
   faCheck,
   faPrint,
   faComments,
-  faTimes
+  faTimes,
+  faEnvelope
 )
 
 // Create the icon HTML elements
@@ -91,6 +93,7 @@ const checkIcon = icon(faCheck).html
 const printIcon = icon(faPrint).html
 const commentsIcon = icon(faComments).html
 const closeIcon = icon(faTimes).html
+const envelopeIcon = icon(faEnvelope).html
 // Add these prefixes to the frontmatter section
 const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
 ---
@@ -100,6 +103,11 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
     <div class="container">
       <div class="wrapper">
         <div class="ml-auto flex items-center gap-4">
+          <button
+            onclick="window.open('mailto:me@vocafeuv.re', '_blank')"
+            class="!mt-1 mr-1 block !h-6 !w-6 !border-none !p-0 !text-primary-500 hover:!text-primary-700 dark:!text-secondary-500 dark:hover:!text-secondary-100"
+            set:html={envelopeIcon}
+          />
           <button
             onclick="window.print()"
             class="!mt-1 block !h-6 !w-6 !border-none !p-0 !text-primary-500 hover:!text-primary-700 dark:!text-secondary-500 dark:hover:!text-secondary-100"
@@ -158,33 +166,43 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
         >
           Full Stack Developer
         </h2>
-        <div class="mt-8 flex w-full items-center justify-center gap-6 print:mt-4">
+        <div
+          class="mt-8 flex w-full flex-col items-center justify-center gap-2 px-3 md:flex-row md:gap-6 md:px-0 print:mt-4"
+        >
           <a
             href="https://github.com/vocafeuvre"
             target="_blank"
-            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+            class="text-shadow text-md group inline-flex items-center text-center !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
           >
-            <span class="h-4 w-4" set:html={githubIcon} />
-            <span class="print:hidden">GitHub</span>
-            <span class="hidden print:block">github.com/vocafeuvre</span>
+            <span class="mr-2 inline-block h-4 w-4" set:html={githubIcon} />
+            <span class="hidden group-hover:hidden md:inline print:hidden">GitHub</span>
+            <span class="group-hover:inline md:hidden print:inline">github.com/vocafeuvre</span>
           </a>
           <a
             href="https://www.linkedin.com/in/ralph-villanueva-44ba80185/"
             target="_blank"
-            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+            class="text-shadow text-md group inline text-center sm:inline-flex items-center !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
           >
-            <span class="h-4 w-4" set:html={linkedinIcon} />
-            <span class="print:hidden">LinkedIn</span>
-            <span class="hidden print:block">linkedin.com/in/ralph-villanueva-44ba80185/</span>
+            <span class="mr-2 inline-block h-4 w-4" set:html={linkedinIcon} />
+            <span class="hidden group-hover:hidden md:inline print:hidden">LinkedIn</span>
+            <span class="group-hover:inline md:hidden print:inline">linkedin.com/in/ralph-villanueva-44ba80185/</span>
           </a>
           <a
             href="https://vocafeuv.re"
             target="_blank"
-            class="text-shadow text-md flex items-center gap-2 !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+            class="text-shadow text-md group inline-flex items-center text-center !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
           >
-            <span class="h-4 w-4" set:html={globeIcon} />
-            <span class="print:hidden">Website</span>
-            <span class="hidden print:block">vocafeuv.re</span>
+            <span class="mr-2 inline-block h-4 w-4" set:html={globeIcon} />
+            <span class="hidden group-hover:hidden md:inline print:hidden">Website</span>
+            <span class="group-hover:inline md:hidden print:inline">vocafeuv.re</span>
+          </a>
+          <a
+            href="mailto:me@vocafeuv.re"
+            class="text-shadow text-md group inline-flex items-center text-center !font-medium !text-neutral-600 no-underline hover:!text-neutral-700 dark:!text-primary-400 dark:hover:!text-primary-100 print:!text-neutral-900 print:dark:!text-neutral-900"
+          >
+            <span class="mr-2 inline-block h-4 w-4" set:html={envelopeIcon} />
+            <span class="hidden group-hover:hidden md:inline print:hidden">Email</span>
+            <span class="group-hover:inline md:hidden print:inline">me@vocafeuv.re</span>
           </a>
         </div>
       </div>
@@ -806,9 +824,9 @@ const prefixes = ['Full Stack', 'Node.js', 'JavaScript', 'Tauri', 'Electron']
     <div id="_chat_container" class="fixed bottom-8 right-8 z-50 hidden">
       <button
         id="_chat_close"
-        class="absolute -right-4 -top-4 rounded-full bg-neutral-800 !border-none !p-0 text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-200 z-10"
+        class="absolute -right-4 -top-4 z-10 rounded-full !border-none bg-neutral-800 !p-0 text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-200"
       >
-        <span class="flex h-4 w-4 m-2 items-center justify-center" set:html={closeIcon} />
+        <span class="m-2 flex h-4 w-4 items-center justify-center" set:html={closeIcon} />
       </button>
       <ChatBot client:only="react" />
     </div>
