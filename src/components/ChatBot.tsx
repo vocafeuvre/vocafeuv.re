@@ -49,6 +49,7 @@ export default function ChatBot() {
         height: '500px',
         backgroundColor: 'rgba(var(--background-color), 0.7)',
         backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
       }}
       connect={{
         url: '/api/chat',
