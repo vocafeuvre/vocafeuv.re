@@ -58,6 +58,8 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     console.error('Error retrieving chat', e)
   }
 
+  console.log('currentChat', currentChat)
+
   if (body.systemPrompt && !currentChat.find((m) => m.role === 'system')) {
     currentChat.unshift({
       role: 'system',
@@ -109,13 +111,13 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
   try {
     if (data && 'choices' in data && data.choices?.[0]?.message?.content) {
-      storedChat.messages.push({
+      currentChat.push({
         role: 'assistant',
         text: data.choices[0].message.content,
       })
     }
 
-    await chatStore.set(visitorId, JSON.stringify(storedChat))
+    await chatStore.set(visitorId, JSON.stringify(currentChat))
   } catch (e) {
     console.error('Error storing chat', e)
   }
