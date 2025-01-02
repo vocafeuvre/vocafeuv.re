@@ -1,3 +1,4 @@
+import { getStore } from '@netlify/blobs'
 import type { APIRoute } from 'astro'
 import type { MessageContent } from 'deep-chat/dist/types/messages'
 
@@ -8,6 +9,13 @@ export interface DeepChatTextRequestBody {
   model?: string
   systemPrompt?: string
   overridePrompt?: string
+  messageLimit?: number
+  messageLimitOverridePrompt?: string
+}
+
+export interface StoredChat {
+  visitorId: string
+  messages: MessageContent[]
 }
 
 export function createReqChatBody(body: DeepChatTextRequestBody, stream?: boolean) {
@@ -23,13 +31,35 @@ export function createReqChatBody(body: DeepChatTextRequestBody, stream?: boolea
   return chatBody
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, cookies }) => {
   const body = (await request.json()) as DeepChatTextRequestBody & {
     systemPrompt: string
   }
 
-  if (body.systemPrompt && !body.messages.find((m) => m.role === 'system')) {
-    body.messages.unshift({
+  const chatStore = getStore('chat')
+  const visitorId = cookies.get('visitor-id')?.value
+
+  let storedChat: StoredChat | null = null
+  let currentChat: MessageContent[] = []
+  try {
+    storedChat = JSON.parse((await chatStore.get(visitorId)) || 'null') as StoredChat | null
+
+    if (!storedChat) {
+      storedChat = {
+        visitorId: visitorId,
+        messages: body.messages,
+      }
+    } else {
+      storedChat.messages.push(...body.messages)
+    }
+
+    currentChat = storedChat.messages
+  } catch (e) {
+    console.error('Error retrieving chat', e)
+  }
+
+  if (body.systemPrompt && !currentChat.find((m) => m.role === 'system')) {
+    currentChat.unshift({
       role: 'system',
       text: body.systemPrompt,
     })
@@ -37,15 +67,24 @@ export const POST: APIRoute = async ({ request }) => {
     body.systemPrompt = undefined
   }
 
-  if (body.overridePrompt) {
-    body.messages.push({
+  if (body.messageLimit && currentChat.length > body.messageLimit) {
+    currentChat.push({
+      role: 'system',
+      text: body.messageLimitOverridePrompt,
+    })
+  } else if (body.overridePrompt) {
+    currentChat.push({
       role: 'system',
       text: body.overridePrompt,
     })
   }
 
-  const newBody = createReqChatBody(body)
+  const newBody = createReqChatBody({
+    ...body,
+    messages: currentChat,
+  })
 
+  let data: object = null
   try {
     const response = await fetch(import.meta.env.OPENROUTER_URL, {
       method: 'POST',
@@ -58,13 +97,7 @@ export const POST: APIRoute = async ({ request }) => {
       body: JSON.stringify(newBody),
     })
 
-    const data = await response.json()
-    return new Response(JSON.stringify(data), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    data = await response.json()
   } catch (error) {
     return new Response(JSON.stringify({ error: 'Failed to fetch response' }), {
       status: 500,
@@ -73,4 +106,24 @@ export const POST: APIRoute = async ({ request }) => {
       },
     })
   }
+
+  try {
+    if (data && 'choices' in data && data.choices?.[0]?.message?.content) {
+      storedChat.messages.push({
+        role: 'assistant',
+        text: data.choices[0].message.content,
+      })
+    }
+
+    await chatStore.set(visitorId, JSON.stringify(storedChat))
+  } catch (e) {
+    console.error('Error storing chat', e)
+  }
+
+  return new Response(JSON.stringify(data), {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 }

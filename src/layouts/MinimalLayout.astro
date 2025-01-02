@@ -9,6 +9,15 @@ const {
   image = '/favicon-light.png',
   author = 'Ralph Villanueva',
 } = Astro.props
+
+if (!Astro.cookies.get('visitor-id')) {
+  Astro.cookies.set('visitor-id', crypto.randomUUID(), {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'strict',
+    path: '/',
+  })
+}
 ---
 
 <html lang="en" dir="ltr">
