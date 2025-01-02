@@ -37,7 +37,8 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   }
 
   const chatStore = getStore('chat')
-  const visitorId = cookies.get('visitor-id')?.value
+
+  const visitorId = cookies.get('visitor-id')?.value || crypto.randomUUID()
 
   let storedChat: StoredChat | null = null
   let currentChat: MessageContent[] = []
