@@ -50,12 +50,17 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         messages: body.messages,
       }
     } else {
-      storedChat.messages.push(...body.messages)
+      if (storedChat.messages) {
+        storedChat.messages.push(...body.messages)
+      } else {
+        storedChat.messages = body.messages
+      }
     }
 
     currentChat = storedChat.messages
   } catch (e) {
     console.error('Error retrieving chat', e)
+    currentChat = body.messages
   }
 
   console.log('currentChat', currentChat)
@@ -117,7 +122,9 @@ export const POST: APIRoute = async ({ request, cookies }) => {
       })
     }
 
-    await chatStore.set(visitorId, JSON.stringify(currentChat))
+    storedChat.messages = currentChat
+
+    await chatStore.set(visitorId, JSON.stringify(storedChat))
   } catch (e) {
     console.error('Error storing chat', e)
   }
