@@ -68,12 +68,12 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   }
 
   if (body.messageLimit && currentChat.length > body.messageLimit) {
-    currentChat.push({
+    currentChat.splice(currentChat.length - 1, 0, {
       role: 'system',
       text: body.messageLimitOverridePrompt,
     })
   } else if (body.overridePrompt) {
-    currentChat.push({
+    currentChat.splice(currentChat.length - 1, 0, {
       role: 'system',
       text: body.overridePrompt,
     })
