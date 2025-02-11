@@ -13,6 +13,7 @@ import {
   faSass,
   faLaravel,
   faReact,
+  faShopify,
 } from '@fortawesome/free-brands-svg-icons'
 import { faGlobe, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import ResponsiveToggle from '../components/ResponsiveToggle.astro'
@@ -62,6 +63,7 @@ library.add(
   faSass,
   faLaravel,
   faReact,
+  faShopify,
   faGears,
   faBuildingColumns,
   faServer,
@@ -95,6 +97,7 @@ const closeIcon = icon(faTimes).html
 const envelopeIcon = icon(faEnvelope).html
 const arrowUpRightFromSquareIcon = icon(faArrowUpRightFromSquare).html
 const phpIcon = icon(faPhp).html
+const shopifyIcon = icon(faShopify).html
 // Add these prefixes to the frontmatter section
 const prefixes = [
   'Lead Full Stack',
@@ -135,9 +138,11 @@ const prefixes = [
   </div>
   <main id="main-content" class="mb-12 print:overflow-y-hidden" transition:animate="fade">
     <section
-      class="relative flex min-h-[360px] flex-col items-center pt-8 sm:min-h-[360px] lg:min-h-[480px] print:min-h-[240px] print:pt-16"
+      class="relative flex min-h-[360px] flex-col items-center pt-8 sm:min-h-[360px] lg:min-h-[480px] print:min-h-[240px] print:pt-10"
     >
-      <div class="absolute left-0 top-0 hidden w-full text-center font-courier text-sm tracking-wider print:block">
+      <div
+        class="absolute left-0 top-0 hidden h-auto w-full text-center font-courier text-sm tracking-wider print:block"
+      >
         This resume is interactive at <a href="https://vocafeuv.re" target="_blank">https://vocafeuv.re</a>
       </div>
       <div class="resume-hero-gradient absolute left-0 top-0 -z-50 h-full w-full"></div>
@@ -229,7 +234,18 @@ const prefixes = [
       >
         <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:gap-5">
           <div class="flex flex-col gap-4">
-            <h2 class="font-courier text-2xl font-semibold">About me</h2>
+            <h2 class="font-courier text-2xl font-semibold">Summary</h2>
+            <div class="text-md flex flex-col gap-2">
+              <p>
+                Lead full stack developer with 8 years of experience in the industry, specializing in web and desktop
+                app development. My biggest strengths are my can-do attitude and my knack for finding solutions to
+                complex problems.
+              </p>
+              <p>I love cooking, reading short stories about adventure, and brewing pour-over coffee.</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h2 class="font-courier text-2xl font-semibold">More about me</h2>
             <ul class="!ml-1 flex flex-col gap-1">
               <li class="group flex items-center gap-2">
                 <div
@@ -258,7 +274,7 @@ const prefixes = [
                 <div class="hidden print:block">•</div>
                 <span
                   class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
-                  >4 years of experience leading teams</span
+                  >4 years of experience leading teams of 5+</span
                 >
               </li>
               <li class="group flex items-center gap-2">
@@ -304,36 +320,6 @@ const prefixes = [
                 <span
                   class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
                   >Has worked with multicultural teams</span
-                >
-              </li>
-              <li class="group flex items-center gap-2">
-                <div
-                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
-                >
-                  <i
-                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
-                    set:html={checkIcon}
-                  />
-                </div>
-                <div class="hidden print:block">•</div>
-                <span
-                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
-                  >Has an attention to detail and good design sense</span
-                >
-              </li>
-              <li class="group flex items-center gap-2">
-                <div
-                  class="ml-2 mr-2 h-3 w-3 rounded-full border-2 border-neutral-600 transition-all group-hover:ml-0.5 group-hover:mr-0.5 group-hover:h-5 group-hover:w-5 group-hover:p-0.5 dark:border-white dark:group-hover:border-secondary-400 print:hidden"
-                >
-                  <i
-                    class="hidden h-0 w-0 text-neutral-600 transition-all group-hover:inline group-hover:h-1 group-hover:w-1 dark:text-white dark:group-hover:text-secondary-400"
-                    set:html={checkIcon}
-                  />
-                </div>
-                <div class="hidden print:block">•</div>
-                <span
-                  class="transition-all group-hover:text-lg group-hover:text-neutral-700 group-hover:underline group-hover:decoration-neutral-600 group-hover:decoration-wavy group-hover:underline-offset-2 dark:group-hover:text-secondary-400 dark:group-hover:decoration-secondary-400"
-                  >Has a can-do and problem-solving attitude</span
                 >
               </li>
               <li class="group flex items-center gap-2">
@@ -414,7 +400,7 @@ const prefixes = [
             </ul>
           </div>
           <div class="flex flex-col gap-4">
-            <h2 class="font-courier text-2xl font-semibold">My educational attainment</h2>
+            <h2 class="font-courier text-2xl font-semibold">My education</h2>
             <ul class="ml-4 flex flex-col gap-2">
               <li class="gap flex flex-col">
                 <span class="whitespace-nowrap text-lg">Masters in Business Administration</span>
@@ -564,7 +550,7 @@ const prefixes = [
         </div>
         <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:gap-5">
           <div class="flex flex-col gap-4">
-            <h2 class="font-courier text-2xl font-semibold">Languages and technologies</h2>
+            <h2 class="font-courier text-2xl font-semibold">Skills and technologies</h2>
             <ul class="ml-1 flex flex-col gap-4 lg:max-w-[400px]">
               <li class="flex flex-col gap-1.5">
                 <div class="flex items-center gap-2">
@@ -672,11 +658,11 @@ const prefixes = [
                     &nbsp;<span class="font-courier text-neutral-300">(4 years)</span>,
                   </span>&nbsp;
                   <span class="inline-flex items-center">
-                    <a
-                      href="https://mozilla.github.io/nunjucks"
-                      target="_blank"
-                      class="text-md font-medium hover:underline">Nunjucks</a
-                    >
+                    <a href="https://pugjs.org" target="_blank" class="text-md font-medium hover:underline">Nunjucks</a>
+                    &nbsp;<span class="font-courier text-neutral-300">(1 year)</span>,
+                  </span>&nbsp;
+                  <span class="inline-flex items-center">
+                    <a href="https://pugjs.org" target="_blank" class="text-md font-medium hover:underline">Pug</a>
                     &nbsp;<span class="font-courier text-neutral-300">(1 year)</span>,
                   </span>&nbsp;
                 </div>
@@ -722,6 +708,18 @@ const prefixes = [
                   <span class="inline-flex items-center">
                     <a href="https://www.slimframework.com" target="_blank" class="text-md font-medium hover:underline"
                       >Slim</a
+                    >
+                    &nbsp;<span class="font-courier text-neutral-300">(1 year)</span>,
+                  </span>&nbsp;
+                  <span class="inline-flex items-center">
+                    <a href="https://www.slimframework.com" target="_blank" class="text-md font-medium hover:underline"
+                      >Drupal</a
+                    >
+                    &nbsp;<span class="font-courier text-neutral-300">(1 year)</span>,
+                  </span>&nbsp;
+                  <span class="inline-flex items-center">
+                    <a href="https://www.slimframework.com" target="_blank" class="text-md font-medium hover:underline"
+                      >Wordpress</a
                     >
                     &nbsp;<span class="font-courier text-neutral-300">(1 year)</span>,
                   </span>&nbsp;
@@ -787,6 +785,18 @@ const prefixes = [
                 <div class="flex items-center gap-2">
                   <span
                     class="mx-2 inline-flex h-4 w-4 items-center justify-center text-neutral-600 dark:text-primary-400 print:!text-neutral-900"
+                    set:html={shopifyIcon}
+                  />
+                  <a href="https://shopify.dev" target="_blank" class="text-lg font-semibold hover:underline">Shopify</a
+                  >
+                  <span class="font-courier text-neutral-300">(1 year)</span>
+                </div>
+              </li>
+
+              <li class="flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="mx-2 inline-flex h-4 w-4 items-center justify-center text-neutral-600 dark:text-primary-400 print:!text-neutral-900"
                     set:html={terminalIcon}
                   />
                   <a
@@ -820,7 +830,7 @@ const prefixes = [
           <div class="flex flex-col gap-4">
             <h2 class="font-courier text-2xl font-semibold">Side projects</h2>
             <ul class="ml-3.5 flex flex-col gap-4">
-              <li class="gap flex flex-col">
+              <li class="flex flex-col gap-1">
                 <a
                   href="https://peakpurity.bg"
                   target="_blank"
@@ -828,11 +838,11 @@ const prefixes = [
                   ><span>peakpurity.bg</span></a
                 >
                 <span class="text-sm text-neutral-500"
-                  >Webmaster and co-designer. Project is in Shopify. Contributed to the brand and product design, and
-                  the ads as well.</span
+                  >I am co-founder, webmaster and co-designer for this online shop in Shopify. Contributed to the brand,
+                  product design, and the ads as well. Currently, it is making 12k dollars a month.</span
                 >
               </li>
-              <li class="gap flex flex-col">
+              <li class="flex flex-col gap-1">
                 <a
                   href="https://catsndogsmatter.com"
                   target="_blank"
@@ -840,8 +850,9 @@ const prefixes = [
                   ><span>catsndogsmatter.com</span></a
                 >
                 <span class="text-sm text-neutral-500"
-                  >Webmaster and co-designer. Project is in Wordpress, using an off-the-shelf theme called Blocksy.
-                  Developed for a non-profit organization that helps stray cats and dogs.</span
+                  >I am webmaster and designer for this charity website in Wordpress. I developed it for a non-profit
+                  organization that helps rescue stray cats and dogs. They hold bi-monthly spay/neuter events and needed
+                  a better form management system than Google Forms.</span
                 >
               </li>
             </ul>
@@ -894,61 +905,61 @@ const prefixes = [
                     <ul class="list-disc text-sm leading-6 tracking-wide">
                       <li class="mb-1">
                         <span
-                          >I was part of the founding team that researched and developed the MVP from scratch. I did a
-                          lot of benchmarks on browser-native APIs including Service Workers and Shadow DOM. Our goal
-                          was to create a browsing environment that fully sandboxes all network requests from the user.
-                          I also played around with commandeering the browser via Puppeteer, Playwright, and browser
-                          command-line flags.</span
+                          >I was part of the founding team. Our goal was to create a browsing environment that fully
+                          sandboxes all user network requests. I benchmarked browser-native APIs including Service
+                          Workers and Shadow DOM. I also developed ways to commandeer the browser via Puppeteer,
+                          Playwright, and browser command-line flags.</span
                         >
                       </li>
                       <li class="mb-1">
                         <span
-                          >I built the desktop app's installer and asset delivery system. For this, I used Tauri +
-                          MithrilJS for the installer UI wrapped in a Node.js PKG executable. Delivery system was a
-                          Node.js HTTPs server serving fixed-size binary chunks listed by a manifest designed for
-                          flexibility, reproducibility, and security.
+                          >I built the desktop app's installer and asset delivery system using Tauri and MithrilJS
+                          wrapped in a Node.js PKG executable. The delivery system is a Node.js HTTPs server serving
+                          fixed-size binary chunks listed by a manifest designed for reproducibility and security,
+                          capable of serving 10k+ downloads per day.
                         </span>
                       </li>
                       <li class="mb-1">
                         <span
-                          >I led a small team that developed the support system for Hoody. We had to build from scratch
-                          because our defining attribute was anonymity. It had measures like double-hashing and at-rest
-                          data encryption to ensure users cannot be tracked, even by us. Tech stack was React +
-                          AdonisJS, a Node.js framework.</span
+                          >I led a team of 2 that developed the support system, processing 100s of tickets every month.
+                          The client side is in vanilla JS while the admin dashboard is in React. The backend is in
+                          plain Node.js proxified in AdonisJS for admins for added anonymity for users. It has measures
+                          like double-hashing and at-rest data encryption to ensure users cannot be tracked.
+                        </span>
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I led the desktop app frontend's development with 5 developers. Initially the app frontend
+                          was in Tauri and MithrilJS, but we switched to a web app coded in SvelteKit, TanStack and
+                          TailwindCSS that was opened in a browser commandeered by a background process. This cut down
+                          development costs by 80%.
+                        </span>
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I co-developed the CI/CD pipeline with my CTO using bash scripts and a system of relay and
+                          edge servers. I also maintained a staging clone using Cloudflared and bash scripts. This
+                          simplified deployment from 1 hour down to a few minutes.</span
                         >
                       </li>
                       <li class="mb-1">
                         <span
-                          >I led the desktop app frontend's development. Initially the app frontend was in Tauri, but we
-                          switched to a web app that was opened in a browser commandeered by the desktop app. We used
-                          SvelteKit, TanStack and TailwindCSS.</span
-                        >
-                      </li>
-                      <li class="mb-1">
-                        <span
-                          >I co-developed the CI/CD pipeline with my CTO. I wrote a lot of bash scripts for this, and I
-                          maintained a staging clone of the production environment setup using Cloudflared and bash
-                          scripts.</span
-                        >
-                      </li>
-                      <li class="mb-1">
-                        <span
-                          >I contributed, and briefly took over the website's team and development. The website heavily
-                          uses Webpack, handwritten CSS, and Handlebars.</span
+                          >I contributed to the website, and briefly took over the website's team of 4 developers. The
+                          website heavily uses Webpack, handwritten CSS, and Handlebars.</span
                         >
                       </li>
                       <li class="mb-1">
                         <span
                           >I led a team of 2 developers that developed the analytics module for the website and its
-                          counterpart dashboard. Tech stack was vanilla JS, and AdonisJS. Graphs were made using
-                          ApexCharts.
+                          counterpart dashboard, written in vanilla JS and AdonisJS. Through this, we are able to view
+                          100k+ visits per month and make data-driven decisions.
                         </span>
                       </li>
                       <li class="mb-1">
                         <span
                           >I built the affiliate management system for Hoody. I had to create both affiliate-facing and
-                          admin dashboards using Refine, a Next.js framework, with an API built with AdonisJS. The API
-                          also had to be integrated with some internal tools for automation.
+                          admin dashboards using Next.js, with an API built with AdonisJS. Currently serving 200+
+                          affiliates.
                         </span>
                       </li>
                     </ul>
@@ -1094,10 +1105,9 @@ const prefixes = [
                     <ul class="list-disc text-sm leading-6 tracking-wide">
                       <li class="mb-1">
                         <span
-                          >I was tasked to develop a file distribution system that operated similar to torrenting. The
-                          system includes server nodes written in Node.js responsible for hosting files, a web widget
-                          that allows direct streaming from the server nodes, and a client app written in Electron for
-                          file downloading and management.</span
+                          >I was tasked to develop a file distribution system that operated similar to torrenting. It
+                          included server nodes in Node.js that hosted files, a web widget that allowed direct streaming
+                          from servers, and a client app in Electron for file downloading.</span
                         >
                       </li>
                       <li class="mb-1">
@@ -1108,9 +1118,8 @@ const prefixes = [
                       </li>
                       <li class="mb-1">
                         <span
-                          >I led a team of 2 that developed the app library. The app library was written in a custom JS
-                          framework I developed. This project used a lot of browser-native APIs, like Service Workers,
-                          CSPs, and web streams.</span
+                          >I led a team of 2 that developed the app library, written in a custom JS framework I
+                          developed. This project used browser-native APIs like Service Workers, CSPs, and web streams.</span
                         >
                       </li>
                     </ul>
@@ -1140,8 +1149,8 @@ const prefixes = [
                 </div>
                 <p class="mb-3 ml-1.5 text-sm leading-6 tracking-wide">
                   Alliance Software is one of the largest software development and business solutions companies in the
-                  Philippines. Their clients range from foreign companies in Japan, Australia and the United States to
-                  local conglomerates in the Philippines.
+                  Philippines. Their clients range from companies in Japan, Australia and the United States to
+                  conglomerates in the Philippines.
                 </p>
 
                 <div class="mb-3 flex flex-col gap-2">
@@ -1155,15 +1164,16 @@ const prefixes = [
                     <ul class="list-disc text-sm leading-6 tracking-wide">
                       <li class="mb-1">
                         <span
-                          >I was part of a team that maintained an internal store network development web app for
-                          Jollibee Foods Corporation, a local fast-food conglomerate. It was developed using Drupal, a
-                          CRM framework based on PHP.</span
-                        >
+                          >I was part of a team that maintained an internal store network development web app in Drupal
+                          for Jollibee Foods Corporation, a local fast-food conglomerate. It tracked 1000s of stores and
+                          had dozens of concurrent users. I was able to lessen the app loading time from 5 minutes to a
+                          few seconds.
+                        </span>
                       </li>
                       <li class="mb-1">
                         <span
-                          >I helped develop an internal franchisee management system for Jollibee Foods Corporation. The
-                          app was written in VueJS and Slim.
+                          >I helped develop an internal franchisee management system written in VueJS and Slim for
+                          Jollibee Foods Corporation.
                         </span>
                       </li>
                     </ul>
