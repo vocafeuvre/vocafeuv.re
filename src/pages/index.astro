@@ -1210,17 +1210,23 @@ const prefixes = [
       </div>
     </section>
   </main>
-  <div class="fixed bottom-4 right-4 z-50 flex items-center gap-3 print:hidden">
+  <div class="fixed bottom-4 right-4 z-50 flex items-center gap-3 md:bottom-6 md:right-6 lg:right-8 print:hidden">
     <div class="relative font-doto text-lg text-neutral-900 dark:text-white">
       <span id="_chat_text"></span>
       <span id="_chat_cursor" class="absolute right-0 top-0 hidden h-7 border-r-2 border-neutral-700 dark:border-white">
       </span>
     </div>
+    <div id="_chat_tooltip" class="glass-background hidden min-w-[280px] rounded-lg p-4">
+      <p class="md:text-md text-base text-neutral-700 dark:text-neutral-100">
+        Hi there! Would you care to chat for a bit?
+      </p>
+      <div id="_chat_tooltip_arrow" class="popper-arrow"></div>
+    </div>
     <button
       id="_chat_button"
-      class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#ff00e1] to-[#00ffe5] !p-0 text-white shadow-lg transition-transform hover:scale-110"
+      class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#ff00e1] to-[#00ffe5] !p-0 text-white shadow-lg transition-transform hover:scale-110 md:h-14 md:w-14 lg:h-16 lg:w-16"
     >
-      <span class="block h-7 w-7" set:html={commentsIcon} />
+      <span class="block h-7 w-7 md:h-8 md:w-8" set:html={commentsIcon} />
     </button>
     <div id="_chat_container" class="fixed bottom-8 right-8 z-50 hidden">
       <button
@@ -1973,6 +1979,46 @@ const prefixes = [
         color: var(--font-color) !important;
       }
     }
+
+    .glass-background {
+      background-color: rgba(var(--background-color), 0.9);
+      backdrop-filter: blur(10px);
+      webkitbackdropfilter: blur(10px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgb(202, 202, 202);
+    }
+  </style>
+  <style lang="scss">
+    #_chat_tooltip {
+      z-index: 51;
+      max-width: 200px;
+    }
+
+    .popper-arrow,
+    .popper-arrow::before {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: inherit;
+    }
+
+    .popper-arrow {
+      visibility: hidden;
+    }
+
+    .popper-arrow::before {
+      visibility: visible;
+      content: '';
+      transform: rotate(45deg);
+    }
+
+    #_chat_tooltip[data-popper-placement^='top'] > .popper-arrow {
+      bottom: -4px;
+    }
+
+    #_chat_tooltip[data-popper-placement^='bottom'] > .popper-arrow {
+      top: -4px;
+    }
   </style>
   <script>
     const prefixElement = document.getElementById('_prefix')
@@ -2074,77 +2120,137 @@ const prefixes = [
     })
   </script>
   <script>
+    // We need to use the full path for client-side imports
+    import * as PopperJS from '@popperjs/core'
+
     const chatButton = document.querySelector('#_chat_button')
     const chatContainer = document.querySelector('#_chat_container')
-    const chatText = document.querySelector('#_chat_text')
-    const chatCursor = document.querySelector('#_chat_cursor') as HTMLElement
+    // const chatText = document.querySelector('#_chat_text')
+    // const chatCursor = document.querySelector('#_chat_cursor') as HTMLElement
     const chatCloseButton = document.querySelector('#_chat_close')
+
+    const button = document.getElementById('_chat_button')
+    const tooltip = document.getElementById('_chat_tooltip')
+
     let chatVisible = false
-    let typingInterval: any
+    // let typingInterval: any
 
     chatButton?.addEventListener('click', () => {
+      tooltip.classList.add('hidden')
+
       chatVisible = !chatVisible
       if (chatContainer) {
         chatContainer.classList.toggle('hidden')
       }
     })
 
-    chatButton?.addEventListener('mouseenter', () => {
-      if (chatText && chatCursor) {
-        chatCursor.classList.remove('hidden')
+    // chatButton?.addEventListener('mouseenter', () => {
+    //   if (chatText && chatCursor) {
+    //     chatCursor.classList.remove('hidden')
 
-        const text = 'Chat with me'
-        let index = 0
-        chatText.textContent = ''
+    //     const text = 'Chat with me'
+    //     let index = 0
+    //     chatText.textContent = ''
 
-        // Clear any existing interval
-        if (typingInterval) {
-          clearInterval(typingInterval)
-        }
+    //     // Clear any existing interval
+    //     if (typingInterval) {
+    //       clearInterval(typingInterval)
+    //     }
 
-        // Start typing effect
-        typingInterval = setInterval(() => {
-          if (index < text.length) {
-            chatText.textContent += text[index]
-            index++
-          } else {
-            if (typingInterval) {
-              clearInterval(typingInterval)
-            }
-          }
-        }, 100)
+    //     // Start typing effect
+    //     typingInterval = setInterval(() => {
+    //       if (index < text.length) {
+    //         chatText.textContent += text[index]
+    //         index++
+    //       } else {
+    //         if (typingInterval) {
+    //           clearInterval(typingInterval)
+    //         }
+    //       }
+    //     }, 100)
 
-        // Show and animate cursor
-        chatCursor.style.opacity = '1'
-        chatCursor.animate(
-          [
-            { opacity: 1, offset: 0 },
-            { opacity: 0, offset: 0.5 },
-            { opacity: 1, offset: 1 },
-          ],
-          {
-            duration: 1000,
-            iterations: Infinity,
-          }
-        )
-      }
-    })
+    //     // Show and animate cursor
+    //     chatCursor.style.opacity = '1'
+    //     chatCursor.animate(
+    //       [
+    //         { opacity: 1, offset: 0 },
+    //         { opacity: 0, offset: 0.5 },
+    //         { opacity: 1, offset: 1 },
+    //       ],
+    //       {
+    //         duration: 1000,
+    //         iterations: Infinity,
+    //       }
+    //     )
+    //   }
+    // })
 
-    chatButton?.addEventListener('mouseleave', () => {
-      if (chatText && chatCursor) {
-        chatText.textContent = ''
-        chatCursor.style.opacity = '0'
-        chatCursor.classList.add('hidden')
-        if (typingInterval) {
-          clearInterval(typingInterval)
-        }
-      }
-    })
+    // chatButton?.addEventListener('mouseleave', () => {
+    //   if (chatText && chatCursor) {
+    //     chatText.textContent = ''
+    //     chatCursor.style.opacity = '0'
+    //     chatCursor.classList.add('hidden')
+    //     if (typingInterval) {
+    //       clearInterval(typingInterval)
+    //     }
+    //   }
+    // })
 
     chatCloseButton?.addEventListener('click', () => {
       chatVisible = false
       if (chatContainer) {
         chatContainer.classList.add('hidden')
+      }
+    })
+
+    // Wait for document load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (button && tooltip) {
+        // Create the popper instance
+        const popperInstance = PopperJS.createPopper(button, tooltip, {
+          placement: 'top',
+          modifiers: [
+            {
+              name: 'offset',
+              options: {
+                offset: [-20, 12], // [x, y] offset - negative x moves it left
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                padding: 24, // Prevents tooltip from touching viewport edges
+              },
+            },
+            {
+              name: 'flip',
+              options: {
+                fallbackPlacements: ['bottom'], // Allow flipping to bottom if needed
+              },
+            },
+          ],
+        })
+
+        // Show tooltip after 5 seconds
+        setTimeout(() => {
+          tooltip.classList.remove('hidden')
+          popperInstance.update() // Update position
+        }, 1000) // Changed to 1 second for testing
+
+        // Hide tooltip when clicking anywhere
+        tooltip.addEventListener('click', () => {
+          tooltip.classList.add('hidden')
+
+          chatVisible = !chatVisible
+          if (chatContainer) {
+            chatContainer.classList.toggle('hidden')
+          }
+        })
+
+        // Clean up
+        return () => {
+          popperInstance.destroy()
+        }
       }
     })
   </script>
