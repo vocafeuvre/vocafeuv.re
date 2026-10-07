@@ -862,9 +862,7 @@ const prefixes = [
     </section>
     <section class="mt-12 flex h-full w-full flex-1 flex-col items-center px-6 sm:px-10 md:mt-32 md:px-12 lg:px-20">
       <h2 class="font-courier text-4xl font-semibold">My work history</h2>
-      <div
-        class="space-between mt-16 flex h-full w-full max-w-[1024px] flex-1 flex-col justify-center lg:flex-row lg:gap-10 print:mt-10 print:block print:columns-2 print:flex-row print:gap-10"
-      >
+      <div class="mt-16 flex h-full w-full max-w-[1024px] flex-1 flex-col print:mt-10 print:block">
         <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:block print:gap-5">
           <ul class="ml-2 flex flex-col print:ml-5">
             <li class="relative flex items-center pb-4 pl-12 print:pl-0">
@@ -875,18 +873,110 @@ const prefixes = [
                 class="absolute left-[2px] top-[7px] h-5 w-5 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
               ></span>
               <div class="flex flex-col gap-1">
-                <h3 class="mb-2 whitespace-nowrap text-2xl font-medium">Lead Developer</h3>
+                <h3 class="mb-2 whitespace-nowrap text-2xl font-medium">Lead Engineer</h3>
+                <div class="ml-1.5 flex items-center gap-3">
+                  <a
+                    href="https://webhouse.com.au"
+                    target="_blank"
+                    class="whitespace-nowrap text-xl font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                    >Webhouse</a
+                  >
+
+                  <span class="text-md mt-1 font-courier text-neutral-500">2025 - Present</span>
+                </div>
+                <p class="mb-4 ml-1.5 text-sm leading-6 tracking-wide">
+                  Webhouse is a Sydney-based custom software studio providing senior systems architects and engineers
+                  to AI and B2B SaaS founders. As Lead Engineer, I own technical delivery across multiple concurrent
+                  client engagements, with direct accountability to clients on architecture and implementation.
+                </p>
+
+                <div class="mb-3.5 flex flex-col gap-2">
+                  <h4 class="ml-1.5 font-courier text-xl font-bold">Office location</h4>
+                  <p class="ml-5 text-sm leading-6 tracking-wide">Fully remote, from Cebu City, Philippines.</p>
+                </div>
+
+                <div class="mb-3.5 flex flex-col gap-2">
+                  <h4 class="ml-1.5 font-courier text-xl font-bold">Notable tasks and projects</h4>
+                  <div class="ml-5 flex flex-col gap-2">
+                    <ul class="list-disc text-sm leading-6 tracking-wide">
+                      <li class="mb-1">
+                        <span
+                          >I am the lead engineer of a reconciliation platform for gaming venues in Australia. It
+                          reconciles ATM, cash desk, Keno, TAB, POS and poker machine clearance data, and integrates with
+                          accounting, banking and POS systems. It runs on NestJS, React and AWS CDK.</span
+                        >
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I work on the ETL behind a business intelligence platform for gaming venues. I trace data
+                          anomalies from upstream gaming-machine feeds through the database, API and AWS Lambda
+                          logs.</span
+                        >
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I built an ad widget that fills the dead time on payment pages. A host adds one script tag,
+                          and the widget shows an ad while the payment authorises. Each view is recorded as an
+                          impression through an AWS Lambda and Kinesis pipeline.</span
+                        >
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I maintain an account planning platform for sales teams, built on NestJS, Prisma and React.
+                          It maps stakeholders and accounts into bubble charts by team and territory, with account
+                          plans, SSO and multi-language support. I shipped configurable account types, territory
+                          overrides, performance units and a multi-team management view.</span
+                        >
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I led the build of a bin hire platform from scratch, migrating the client off a fragmented
+                          legacy stack. It has a Next.js admin dashboard, a React Native driver app, an Astro booking
+                          funnel with an embeddable widget, and integrations with Xero and payments. It processes dozens
+                          of orders daily, and I continue to operate it. I also designed its AI website chatbot and
+                          after-hours phone receptionist.</span
+                        >
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I am lead developer and delivery manager for the CRM of an Australian scaffolding company. It
+                          runs on AdonisJS, Next.js and Pulumi, and covers the full quote-to-job flow. Its configurable
+                          quote-generation engine and DOCX/PDF output reduced quote turnaround from hours to
+                          minutes.</span
+                        >
+                      </li>
+                      <li class="mb-1">
+                        <span
+                          >I set engineering standards across the team: code review on every PR, test-first on critical
+                          paths, and AI tooling discipline (Claude Code, Codex) with mandatory human review on
+                          business-critical and security-sensitive code.</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="relative flex items-center pb-4 pl-12 print:pl-0">
+              <span
+                class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-[#FF6C00] to-[#ff00e0] print:hidden"
+              ></span>
+              <span
+                class="absolute left-[4px] top-[5px] h-4 w-4 self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] print:hidden"
+              ></span>
+              <div class="flex flex-col gap-1">
+                <h3 class="mb-2 whitespace-nowrap text-xl font-medium">Lead Developer</h3>
                 <div class="ml-1.5 flex items-center gap-3">
                   <a
                     href="https://hoody.com"
                     target="_blank"
-                    class="whitespace-nowrap text-xl font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
+                    class="whitespace-nowrap text-lg font-medium transition-all !fire-gradient-text hover:tracking-wider print:!text-neutral-900 print:dark:!text-neutral-900"
                     >Hoody</a
                   >
 
-                  <span class="text-md mt-1 font-courier text-neutral-500">2021 - Present</span>
+                  <span class="text-md mt-0.5 font-courier text-neutral-500">2021 - 2025</span>
                 </div>
-                <p class="mb-4 ml-1.5 text-sm leading-6 tracking-wide">
+                <p class="mb-3 ml-1.5 text-sm leading-6 tracking-wide">
                   Hoody is a comprehensive privacy suite developed by DevOps Solutions. It offers bulletproof privacy
                   via its wide range of products and tools: VPN, browser extension, desktop app, free proxies, and
                   private AI.
@@ -1039,35 +1129,6 @@ const prefixes = [
                 </div>
               </div>
             </li>
-            <li class="relative hidden items-center pl-9 lg:flex print:pl-0">
-              <span
-                class="absolute left-[-3.5px] top-[8px] flex h-8 w-8 items-center justify-center self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] font-courier text-lg font-bold print:hidden"
-                >A</span
-              >
-              <div class="ml-4 mt-2.5 flex flex-col print:hidden">
-                <span class="cursor-none whitespace-nowrap font-courier text-lg text-neutral-700"
-                  >Jump to connector in next column...</span
-                >
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="flex flex-1 flex-col gap-16 lg:gap-5 print:block print:gap-5">
-          <ul class="ml-2 flex flex-col print:ml-5">
-            <li class="relative hidden items-center pb-10 pl-9 lg:flex print:pb-0 print:pl-0">
-              <span
-                class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-[#FF6C00] to-[#ff00e0] print:hidden"
-              ></span>
-              <span
-                class="absolute left-[-3.5px] top-[8px] flex h-8 w-8 items-center justify-center self-start rounded-full bg-gradient-to-t from-[#ff00e0] to-[#FF6C00] font-courier text-lg font-bold print:hidden"
-                >A</span
-              >
-              <div class="ml-4 mt-2.5 flex flex-col print:hidden">
-                <span class="cursor-none whitespace-nowrap font-courier text-lg text-neutral-700"
-                  >Continue from previous column...</span
-                >
-              </div>
-            </li>
             <li class="relative flex items-center pb-4 pl-12 print:pl-0">
               <span
                 class="absolute left-[9.75px] top-[9.75px] h-full w-1.5 bg-gradient-to-t from-[#FF6C00] to-[#ff00e0] print:hidden"
@@ -1210,7 +1271,7 @@ const prefixes = [
       </div>
     </section>
   </main>
-  <div class="fixed bottom-4 right-4 z-50 flex items-center gap-3 md:bottom-6 md:right-6 lg:right-8 print:hidden">
+  <div class="fixed bottom-4 right-4 z-50 hidden items-center gap-3 md:bottom-6 md:right-6 lg:right-8 print:hidden">
     <div class="relative font-doto text-lg text-neutral-900 dark:text-white">
       <span id="_chat_text"></span>
       <span id="_chat_cursor" class="absolute right-0 top-0 hidden h-7 border-r-2 border-neutral-700 dark:border-white">
